@@ -1,118 +1,1528 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="bn">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#087f63"><meta name="description" content="ShikkhaSetu — বিশ্ববিদ্যালয়ের শিক্ষার্থীদের সঙ্গে অভিভাবকদের শিক্ষার সংযোগ।">
-<title>ShikkhaSetu | শিক্ষাসেতু</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script src="https://unpkg.com/lucide@latest"></script>
-<script src="config.js"></script><script src="api.js" defer></script>
-<style>
-:root{--green:#087f63;--green2:#10a37f;--purple:#7454d6;--orange:#f59a38;--navy:#17243b;--muted:#68758b;--bg:#f5f8fb;--line:#e6ebf1;--white:#fff;--shadow:0 14px 40px rgba(24,45,75,.09);--radius:22px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--navy);font-family:'Hind Siliguri',Inter,sans-serif;font-size:16px}button,input,select,textarea{font:inherit}button{cursor:pointer}.container{width:min(1160px,calc(100% - 36px));margin:auto}.nav{height:76px;background:#ffffffed;backdrop-filter:blur(14px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}.nav-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--navy);font:800 20px Inter,sans-serif}.brand-mark{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--green),#20b98c);display:grid;place-items:center;color:white}.brand small{display:block;font:600 12px 'Hind Siliguri';color:var(--green);margin-top:2px}.nav-links{display:flex;gap:27px}.nav-links a{color:#536078;text-decoration:none;font-weight:600}.nav-links a:hover{color:var(--green)}.nav-actions{display:flex;gap:10px}.btn{border:0;border-radius:13px;padding:12px 19px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:.2s;text-decoration:none}.btn:hover{transform:translateY(-2px);filter:brightness(1.03)}.btn-primary{background:var(--green);color:white;box-shadow:0 8px 18px #087f6330}.btn-outline{background:white;color:var(--green);border:1px solid #b9ded3}.btn-purple{background:var(--purple);color:white}.btn-light{background:#edf7f3;color:var(--green)}.menu-toggle{display:none;border:1px solid var(--line);background:white;border-radius:12px;padding:9px}.hero{padding:70px 0 52px;overflow:hidden;background:radial-gradient(circle at 85% 20%,#e6ddff 0,transparent 27%),radial-gradient(circle at 8% 90%,#d9f6eb 0,transparent 30%),linear-gradient(180deg,#fbfdff,#f4f8fc)}.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:7px;color:var(--green);background:#e4f6ef;padding:8px 13px;border-radius:99px;font-weight:700;font-size:14px}.hero h1{font-size:clamp(36px,5vw,58px);line-height:1.2;margin:20px 0 15px;letter-spacing:-.8px}.hero h1 span{color:var(--green)}.hero p{font-size:19px;color:var(--muted);max-width:580px;line-height:1.7;margin:0 0 26px}.hero-buttons{display:flex;gap:12px;flex-wrap:wrap}.hero-art{position:relative;min-height:360px;display:grid;place-items:center}.art-circle{width:min(350px,85%);aspect-ratio:1;border-radius:50%;background:linear-gradient(145deg,#d9f4e9,#e9e3ff);display:grid;place-items:center;position:relative}.art-book{width:190px;height:150px;background:white;border-radius:15px;box-shadow:0 25px 45px #26395a20;display:grid;place-items:center;color:var(--green);transform:rotate(-8deg)}.art-book i{width:80px;height:80px}.float-card{position:absolute;background:white;border:1px solid #edf0f5;border-radius:16px;padding:13px 16px;box-shadow:var(--shadow);font-weight:700}.float-one{top:45px;right:0}.float-two{bottom:35px;left:0}.float-card small{display:block;color:var(--muted);font-weight:500}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:35px}.stat{background:white;border:1px solid var(--line);border-radius:17px;padding:17px;display:flex;gap:13px;align-items:center}.stat-icon{width:43px;height:43px;border-radius:13px;background:#e8f7f1;color:var(--green);display:grid;place-items:center}.stat strong{font:800 23px Inter;display:block}.stat small{color:var(--muted)}.section{padding:76px 0;scroll-margin-top:75px}.section-white{background:white}.section-head{text-align:center;max-width:680px;margin:0 auto 35px}.section-head .eyebrow{margin-bottom:12px}.section-head h2{font-size:clamp(28px,4vw,39px);margin:0 0 8px}.section-head p{margin:0;color:var(--muted);font-size:17px}.search-layout{display:grid;grid-template-columns:270px 1fr;gap:22px;align-items:start}.filters{background:white;border:1px solid var(--line);border-radius:19px;padding:20px;position:sticky;top:94px}.filter-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:17px}.filter-head h3{margin:0;font-size:20px}.field{margin-bottom:13px}.field label{display:block;font-weight:600;font-size:14px;margin-bottom:6px;color:#35435a}.field input,.field select,.field textarea{width:100%;border:1px solid #dfe6ee;border-radius:11px;padding:11px 12px;background:#fff;color:var(--navy);outline:none;min-width:0}.field textarea{min-height:80px;resize:vertical}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--green2);box-shadow:0 0 0 3px #10a37f18}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:10px}.results-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:15px}.results-top h3{margin:0;font-size:21px}.results-top p{margin:2px 0 0;color:var(--muted);font-size:14px}.sort-select{max-width:190px}.tutor-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.tutor-card{background:white;border:1px solid var(--line);border-radius:18px;padding:18px;transition:.2s;min-width:0}.tutor-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}.tutor-head{display:flex;gap:13px;align-items:center;margin-bottom:13px}.avatar{width:58px;height:58px;border-radius:17px;object-fit:cover;background:#e9f5f0;display:grid;place-items:center;color:var(--green);font-size:24px;font-weight:700;flex-shrink:0}.tutor-head h4{margin:0 0 3px;font-size:18px}.tutor-head p{margin:0;color:var(--muted);font-size:13px}.tag-row{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0}.tag{font-size:12px;padding:5px 9px;border-radius:99px;background:#f0edff;color:#6b4bc4;font-weight:600}.tag.green{background:#e7f7f0;color:var(--green)}.tutor-meta{display:grid;grid-template-columns:1fr 1fr;gap:9px;color:#58667b;font-size:13px;margin:12px 0}.tutor-meta span{display:flex;gap:6px;align-items:flex-start}.tutor-meta i{width:15px;height:15px;color:var(--green);flex-shrink:0;margin-top:2px}.salary{font:800 19px Inter;color:var(--green)}.salary small{font:500 12px 'Hind Siliguri';color:var(--muted)}.card-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;border-top:1px solid var(--line);padding-top:13px;margin-top:13px}.card-bottom .btn{padding:9px 12px;font-size:13px}.empty,.loading,.error-box{background:white;border:1px dashed #d9e2eb;border-radius:18px;text-align:center;padding:40px 20px;color:var(--muted);grid-column:1/-1}.empty i{width:42px;height:42px;color:#9aa7b7}.spinner{width:27px;height:27px;border:3px solid #dcece6;border-top-color:var(--green);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 12px}@keyframes spin{to{transform:rotate(360deg)}}.pagination{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:22px}.pagination button{border:1px solid var(--line);background:white;border-radius:10px;padding:8px 13px}.pagination button:disabled{opacity:.4;cursor:not-allowed}.form-wrap{max-width:900px;margin:auto;background:white;border:1px solid var(--line);border-radius:24px;padding:clamp(20px,4vw,38px);box-shadow:var(--shadow)}.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0 18px}.form-grid .full{grid-column:1/-1}.form-section-title{font-size:18px;color:var(--green);font-weight:700;border-bottom:1px solid var(--line);padding:8px 0;margin:8px 0 17px;grid-column:1/-1}.check-grid{display:flex;gap:9px;flex-wrap:wrap}.check-pill{border:1px solid var(--line);border-radius:10px;padding:8px 11px;display:flex;gap:7px;align-items:center;font-size:14px}.check-pill input{accent-color:var(--green)}.hint{font-size:12px;color:var(--muted);margin-top:5px}.notice{padding:13px 15px;border-radius:12px;margin:14px 0;display:none}.notice.success{display:block;background:#e7f7ef;color:#08734f}.notice.error{display:block;background:#fff0ed;color:#b33b2d}.submit-row{display:flex;justify-content:flex-end;margin-top:10px}.about-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.about-card{padding:23px;background:#f7fafc;border:1px solid var(--line);border-radius:18px}.about-card i{width:30px;height:30px;color:var(--green)}.about-card h3{margin:13px 0 5px}.about-card p{margin:0;color:var(--muted);line-height:1.6}.footer{background:#14233a;color:#d8e1ec;padding:38px 0}.footer-inner{display:flex;justify-content:space-between;gap:25px;align-items:center}.footer p{color:#9eacc0;margin:6px 0 0}.footer .brand{color:white}.modal-backdrop{position:fixed;inset:0;background:#101b2dcc;z-index:50;display:none;align-items:center;justify-content:center;padding:18px}.modal-backdrop.open{display:flex}.modal{width:min(620px,100%);max-height:90vh;overflow:auto;background:white;border-radius:22px;padding:25px;position:relative}.modal-close{position:absolute;right:15px;top:15px;border:0;background:#f0f3f7;border-radius:10px;padding:8px}.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin:20px 0}.detail-item{background:#f7f9fb;padding:12px;border-radius:12px}.detail-item small{display:block;color:var(--muted)}.detail-item strong{overflow-wrap:anywhere}.mobile-filter-bar{display:none}.toast{position:fixed;right:20px;bottom:20px;z-index:80;background:#17243b;color:white;padding:13px 18px;border-radius:12px;box-shadow:var(--shadow);max-width:min(380px,calc(100% - 40px));display:none}.toast.show{display:block}.honeypot{position:absolute;left:-9999px;opacity:0;height:0;width:0}
-@media(max-width:850px){.nav-links{display:none;position:absolute;top:76px;left:0;right:0;background:white;padding:18px 25px;border-bottom:1px solid var(--line);flex-direction:column;gap:14px}.nav-links.open{display:flex}.menu-toggle{display:block}.nav-actions .btn-outline{display:none}.hero-grid{grid-template-columns:1fr}.hero-art{min-height:270px}.art-circle{width:260px}.art-book{width:150px;height:120px}.search-layout{grid-template-columns:1fr}.filters{position:fixed;z-index:40;top:0;bottom:0;left:0;width:min(340px,88vw);overflow:auto;border-radius:0 20px 20px 0;transform:translateX(-110%);transition:.25s}.filters.open{transform:translateX(0)}.mobile-filter-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px}.mobile-filter-bar .btn{padding:9px 13px}.about-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.container{width:min(100% - 26px,1160px)}.nav{height:66px}.nav-links{top:66px}.brand{font-size:17px}.brand-mark{width:38px;height:38px}.nav-actions .btn{padding:9px 11px;font-size:13px}.hero{padding:46px 0 35px}.hero h1{font-size:36px}.hero p{font-size:16px}.hero-art{min-height:230px}.art-circle{width:220px}.float-one{right:-3px;top:20px}.float-two{left:-3px;bottom:10px}.float-card{font-size:13px;padding:10px}.stats{gap:8px}.stat{padding:11px;display:block}.stat-icon{margin-bottom:8px}.stat strong{font-size:19px}.stat small{font-size:11px}.section{padding:55px 0}.tutor-grid{grid-template-columns:1fr}.results-top{align-items:flex-start;flex-direction:column}.sort-select{max-width:none;width:100%}.form-grid{grid-template-columns:1fr}.form-grid .full,.form-section-title{grid-column:auto}.about-grid{grid-template-columns:1fr}.footer-inner{align-items:flex-start;flex-direction:column}.detail-grid{grid-template-columns:1fr 1fr}.two-col{gap:7px}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#075e54">
+  <meta name="description" content="ShikkhaSetu - বিশ্ববিদ্যালয়ের শিক্ষার্থীদের সাথে শিক্ষার নতুন সংযোগ।">
+  <title>ShikkhaSetu | শিক্ষাসেতু</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #087f70;
+      --primary-dark: #075e54;
+      --secondary: #f0a43a;
+      --ink: #18332f;
+      --muted: #71817d;
+      --bg: #f5f8f7;
+      --white: #ffffff;
+      --border: #e4ece9;
+      --danger: #d94848;
+      --shadow: 0 12px 35px rgba(20, 65, 56, .08);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Hind Siliguri", "Inter", sans-serif;
+      line-height: 1.6;
+    }
+
+    button, input, select, textarea {
+      font: inherit;
+    }
+
+    button { cursor: pointer; }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1160px, calc(100% - 36px));
+      margin: auto;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,255,255,.96);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 25px;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: var(--primary);
+      color: white;
+      font-size: 23px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      font-weight: 600;
+      color: #52645f;
+    }
+
+    .nav-links a:hover { color: var(--primary); }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 11px;
+      padding: 11px 18px;
+      font-weight: 700;
+      transition: .2s;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      background: white;
+    }
+
+    .btn-outline:hover { background: #edf8f5; }
+
+    .btn-light {
+      background: #edf5f2;
+      color: var(--primary-dark);
+    }
+
+    .btn-danger {
+      background: #fff0f0;
+      color: var(--danger);
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 0;
+      background: #edf5f2;
+      color: var(--primary-dark);
+      border-radius: 10px;
+      padding: 9px 13px;
+      font-size: 22px;
+    }
+
+    .hero {
+      padding: 76px 0 65px;
+      background:
+        radial-gradient(circle at 85% 15%, rgba(240,164,58,.18), transparent 25%),
+        linear-gradient(135deg, #e8f7f1 0%, #f7fbf9 60%, #fff8ec 100%);
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      align-items: center;
+      gap: 45px;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      padding: 7px 14px;
+      border-radius: 30px;
+      color: var(--primary-dark);
+      background: #d8f0e8;
+      font-weight: 700;
+      margin-bottom: 17px;
+    }
+
+    .hero h1 {
+      margin: 0 0 16px;
+      font-size: clamp(34px, 5vw, 57px);
+      line-height: 1.2;
+      letter-spacing: -.7px;
+    }
+
+    .hero h1 span { color: var(--primary); }
+
+    .hero p {
+      max-width: 590px;
+      color: #64756f;
+      font-size: 18px;
+      margin: 0 0 26px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-art {
+      min-height: 300px;
+      display: grid;
+      place-items: center;
+      position: relative;
+    }
+
+    .hero-circle {
+      width: min(330px, 85%);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #bde9d9, #e2f5ed);
+      display: grid;
+      place-items: center;
+      font-size: 130px;
+      box-shadow: 0 25px 55px rgba(8,127,112,.13);
+    }
+
+    .floating-note {
+      position: absolute;
+      background: white;
+      padding: 12px 17px;
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      font-weight: 700;
+    }
+
+    .note-one { top: 24px; left: 0; }
+    .note-two { bottom: 24px; right: 0; }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: -25px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .stat-card {
+      padding: 22px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .stat-card strong {
+      display: block;
+      font-size: 30px;
+      color: var(--primary);
+      line-height: 1.3;
+    }
+
+    .stat-card span { color: var(--muted); }
+
+    .section {
+      padding: 75px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(27px, 4vw, 37px);
+      margin: 0 0 7px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .role-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .role-card {
+      background: white;
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .role-icon {
+      width: 55px;
+      height: 55px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: #e5f5ef;
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .role-card h3 { margin: 0 0 8px; font-size: 23px; }
+    .role-card p { color: var(--muted); margin: 0 0 18px; }
+
+    .search-section { background: white; }
+
+    .search-panel {
+      background: #f8fbfa;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 25px;
+    }
+
+    .filter-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 0;
+    }
+
+    .field label {
+      font-weight: 600;
+      color: #425650;
+      font-size: 14px;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      min-width: 0;
+      border: 1px solid #dce7e2;
+      background: white;
+      border-radius: 10px;
+      padding: 11px 12px;
+      outline: none;
+      color: var(--ink);
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(8,127,112,.1);
+    }
+
+    .filter-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 19px;
+    }
+
+    .results-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      margin: 30px 0 17px;
+      flex-wrap: wrap;
+    }
+
+    .results-top h3 { margin: 0; font-size: 22px; }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .tutor-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      padding: 20px;
+      box-shadow: 0 7px 22px rgba(20,65,56,.045);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .tutor-head {
+      display: flex;
+      gap: 13px;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 58px;
+      height: 58px;
+      flex: 0 0 58px;
+      border-radius: 16px;
+      object-fit: cover;
+      background: #e7f3ee;
+    }
+
+    .avatar-placeholder {
+      display: grid;
+      place-items: center;
+      color: var(--primary);
+      font-size: 25px;
+      font-weight: 700;
+    }
+
+    .tutor-head h4 { margin: 0; font-size: 18px; }
+    .tutor-head p { margin: 2px 0 0; color: var(--muted); font-size: 13px; }
+
+    .tutor-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .tag {
+      background: #edf7f3;
+      color: #287365;
+      padding: 5px 9px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .tutor-info {
+      color: #60716b;
+      font-size: 14px;
+      display: grid;
+      gap: 4px;
+    }
+
+    .tutor-price {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    .tutor-card .btn { width: 100%; margin-top: auto; }
+
+    .empty-state, .loading-state, .error-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 40px 20px;
+      border: 1px dashed #cbdcd5;
+      border-radius: 16px;
+      color: var(--muted);
+      background: #fbfdfc;
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 25px;
+    }
+
+    .page-btn {
+      min-width: 38px;
+      height: 38px;
+      border: 1px solid var(--border);
+      background: white;
+      border-radius: 9px;
+      color: var(--ink);
+    }
+
+    .page-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .register-section {
+      background: linear-gradient(135deg, #eaf7f1, #fff9ef);
+    }
+
+    .form-card {
+      max-width: 850px;
+      margin: auto;
+      padding: 30px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .form-card h3 { margin: 0 0 5px; font-size: 25px; }
+    .form-intro { color: var(--muted); margin: 0 0 22px; }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .field-full { grid-column: 1 / -1; }
+
+    .field textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .check-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 17px;
+      padding: 9px 0;
+    }
+
+    .check-option {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #52645f;
+      font-size: 14px;
+    }
+
+    .check-option input { accent-color: var(--primary); }
+
+    .form-message {
+      display: none;
+      padding: 12px 15px;
+      border-radius: 10px;
+      margin: 15px 0;
+      font-weight: 600;
+    }
+
+    .form-message.success {
+      display: block;
+      color: #176b4e;
+      background: #e8f7ee;
+    }
+
+    .form-message.error {
+      display: block;
+      color: #a83232;
+      background: #fff0f0;
+    }
+
+    .submit-row { margin-top: 20px; }
+
+    .footer {
+      background: #123d36;
+      color: #e6f2ee;
+      padding: 45px 0 20px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 30px;
+      padding-bottom: 28px;
+    }
+
+    .footer h3, .footer h4 { color: white; margin-top: 0; }
+    .footer p, .footer a { color: #c1d8d0; }
+    .footer a { display: block; margin: 7px 0; }
+    .footer a:hover { color: white; }
+
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,.15);
+      padding-top: 17px;
+      text-align: center;
+      color: #b4ccc3;
+      font-size: 14px;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(12,30,26,.62);
+      padding: 20px;
+      overflow-y: auto;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal.show { display: flex; }
+
+    .modal-content {
+      width: min(560px, 100%);
+      background: white;
+      border-radius: 20px;
+      padding: 26px;
+      position: relative;
+      box-shadow: 0 20px 70px rgba(0,0,0,.2);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      border: 0;
+      background: #edf4f1;
+      border-radius: 9px;
+      width: 35px;
+      height: 35px;
+      font-size: 21px;
+    }
+
+    .modal-content h3 { margin-top: 0; padding-right: 35px; }
+    .detail-list { display: grid; gap: 10px; color: #52645f; }
+    .detail-list strong { color: var(--ink); }
+
+    .mobile-nav {
+      display: none;
+      padding: 12px 18px 18px;
+      background: white;
+      border-top: 1px solid var(--border);
+    }
+
+    .mobile-nav.open { display: grid; gap: 12px; }
+    .mobile-nav a { padding: 7px 0; font-weight: 600; }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .menu-toggle { display: block; }
+      .hero-grid { grid-template-columns: 1fr  .8fr; gap: 20px; }
+      .filter-grid { grid-template-columns: repeat(2, 1fr); }
+      .results-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 650px) {
+      .container { width: min(100% - 26px, 1160px); }
+      .nav-inner { min-height: 66px; }
+      .brand { font-size: 21px; }
+      .brand-icon { width: 39px; height: 39px; }
+      .nav-actions .btn { display: none; }
+      .hero { padding: 48px 0 55px; }
+      .hero-grid { grid-template-columns: 1fr; text-align: center; }
+      .hero p { font-size: 16px; }
+      .hero-buttons { justify-content: center; }
+      .hero-art { min-height: 230px; }
+      .hero-circle { width: 220px; font-size: 90px; }
+      .floating-note { font-size: 13px; padding: 9px 12px; }
+      .stats { gap: 8px; }
+      .stat-card { padding: 14px 7px; }
+      .stat-card strong { font-size: 23px; }
+      .stat-card span { font-size: 12px; }
+      .section { padding: 55px 0; }
+      .role-grid, .results-grid, .form-grid, .footer-grid { grid-template-columns: 1fr; }
+      .filter-grid { grid-template-columns: 1fr 1fr; gap: 11px; }
+      .search-panel, .form-card { padding: 17px; }
+      .field-full { grid-column: auto; }
+      .footer-grid { gap: 18px; }
+    }
+
+    @media (max-width: 390px) {
+      .filter-grid { grid-template-columns: 1fr; }
+      .hero-buttons .btn { width: 100%; }
+    }
+  </style>
 </head>
+
 <body>
-<header class="nav"><div class="container nav-inner">
-<a class="brand" href="#home"><span class="brand-mark"><i data-lucide="graduation-cap"></i></span><span>ShikkhaSetu<small>শিক্ষাসেতু</small></span></a>
-<nav class="nav-links" id="navLinks"><a href="#home">হোম</a><a href="#find">শিক্ষক খুঁজুন</a><a href="#join">শিক্ষক হিসেবে যুক্ত হোন</a><a href="#about">আমাদের সম্পর্কে</a></nav>
-<div class="nav-actions"><a class="btn btn-outline" href="#find">শিক্ষক খুঁজুন</a><a class="btn btn-primary" href="#join">যুক্ত হোন <i data-lucide="arrow-up-right"></i></a><button class="menu-toggle" id="menuToggle" aria-label="মেনু"><i data-lucide="menu"></i></button></div>
-</div></header>
-<main>
-<section class="hero" id="home"><div class="container hero-grid"><div><span class="eyebrow"><i data-lucide="sparkles"></i> শিক্ষার নতুন সংযোগ</span><h1>আপনার সন্তানের জন্য <span>খুঁজে নিন যোগ্য শিক্ষক</span></h1><p>বাংলাদেশের বিভিন্ন বিশ্ববিদ্যালয়ের শিক্ষার্থীদের সঙ্গে যুক্ত হোন সহজেই। আপনার প্রয়োজন অনুযায়ী শিক্ষক খুঁজুন অথবা শিক্ষক হিসেবে যুক্ত হোন ShikkhaSetu-তে।</p><div class="hero-buttons"><a class="btn btn-primary" href="#find"><i data-lucide="search"></i> শিক্ষক খুঁজুন</a><a class="btn btn-purple" href="#join"><i data-lucide="user-plus"></i> শিক্ষক হিসেবে যুক্ত হোন</a></div></div>
-<div class="hero-art"><div class="art-circle"><div class="art-book"><i data-lucide="book-open-check"></i></div></div><div class="float-card float-one"><i data-lucide="badge-check" style="color:#087f63;vertical-align:middle"></i> যোগ্য শিক্ষার্থী শিক্ষক<small>বিশ্ববিদ্যালয়ভিত্তিক সংযোগ</small></div><div class="float-card float-two"><i data-lucide="map-pin" style="color:#7454d6;vertical-align:middle"></i> ৬৪ জেলা<small>সারা বাংলাদেশে</small></div></div></div>
-<div class="container stats"><div class="stat"><span class="stat-icon"><i data-lucide="users"></i></span><div><strong id="statTutors">—</strong><small>মোট শিক্ষক</small></div></div><div class="stat"><span class="stat-icon" style="background:#f0edff;color:#7454d6"><i data-lucide="graduation-cap"></i></span><div><strong id="statUniversities">—</strong><small>মোট বিশ্ববিদ্যালয়</small></div></div><div class="stat"><span class="stat-icon" style="background:#fff3e5;color:#e58b27"><i data-lucide="map"></i></span><div><strong id="statDistricts">—</strong><small>শিক্ষকদের প্রতিনিধিত্ব করা জেলা</small></div></div></div>
-</section>
-<section class="section" id="find"><div class="container"><div class="section-head"><span class="eyebrow">অভিভাবকদের জন্য</span><h2>আপনার পছন্দের শিক্ষক খুঁজুন</h2><p>এলাকা, বিশ্ববিদ্যালয়, বিষয় ও বেতন অনুযায়ী আপনার প্রয়োজনের শিক্ষক খুঁজে নিন।</p></div>
-<div class="mobile-filter-bar"><strong>শিক্ষক অনুসন্ধান</strong><button class="btn btn-outline" id="openFilters"><i data-lucide="sliders-horizontal"></i> ফিল্টার</button></div>
-<div class="search-layout"><aside class="filters" id="filters"><div class="filter-head"><h3>ফিল্টার</h3><button class="btn btn-light" id="clearFilters" type="button">সব মুছুন</button></div>
-<div class="field"><label for="qName">শিক্ষকের নাম</label><input id="qName" placeholder="নাম লিখুন"></div>
-<div class="field"><label for="qDivision">বিভাগ</label><select id="qDivision"><option value="">সকল বিভাগ</option></select></div>
-<div class="field"><label for="qDistrict">জেলা</label><select id="qDistrict"><option value="">সকল জেলা</option></select></div>
-<div class="field"><label for="qUniversity">বিশ্ববিদ্যালয়</label><input id="qUniversity" placeholder="বিশ্ববিদ্যালয়ের নাম"></div>
-<div class="field"><label for="qDepartment">ডিপার্টমেন্ট</label><input id="qDepartment" placeholder="যেমন: Statistics"></div>
-<div class="field"><label for="qYear">শিক্ষাবর্ষ</label><select id="qYear"><option value="">সকল বর্ষ</option><option>1st Year</option><option>2nd Year</option><option>3rd Year</option><option>4th Year</option><option>5th Year</option><option>Masters</option><option>Other</option></select></div>
-<div class="field"><label for="qSubject">পড়ানোর বিষয়</label><input id="qSubject" placeholder="যেমন: Mathematics"></div>
-<div class="field"><label for="qLocation">পড়ানোর এলাকা</label><input id="qLocation" placeholder="এলাকার নাম"></div>
-<div class="two-col"><div class="field"><label for="qMin">সর্বনিম্ন বেতন</label><input id="qMin" type="number" min="0" placeholder="৳"></div><div class="field"><label for="qMax">সর্বোচ্চ বেতন</label><input id="qMax" type="number" min="0" placeholder="৳"></div></div>
-<div class="field"><label for="qExperience">অভিজ্ঞতা</label><select id="qExperience"><option value="">যেকোনো অভিজ্ঞতা</option><option value="0">নতুন শিক্ষক</option><option value="1">১ বছর বা বেশি</option><option value="2">২ বছর বা বেশি</option><option value="3">৩ বছর বা বেশি</option></select></div>
-<div class="field"><label for="qClass">শ্রেণি</label><input id="qClass" placeholder="যেমন: Class 8"></div>
-<button class="btn btn-primary" id="searchBtn" style="width:100%"><i data-lucide="search"></i> শিক্ষক খুঁজুন</button></aside>
-<div><div class="results-top"><div><h3>শিক্ষক তালিকা</h3><p id="resultCount">তথ্য লোড হচ্ছে...</p></div><select class="field sort-select" id="sortBy" aria-label="সাজান"><option value="newest">সর্বশেষ যুক্ত</option><option value="salaryAsc">সর্বনিম্ন বেতন</option><option value="salaryDesc">সর্বোচ্চ বেতন</option><option value="experienceDesc">সবচেয়ে অভিজ্ঞ</option></select></div>
-<div class="tutor-grid" id="tutorResults"><div class="loading"><div class="spinner"></div>শিক্ষকের তথ্য লোড হচ্ছে...</div></div><div class="pagination" id="pagination"></div></div></div></div></section>
-<section class="section section-white" id="join"><div class="container"><div class="section-head"><span class="eyebrow">শিক্ষার্থীদের জন্য</span><h2>শিক্ষক হিসেবে যুক্ত হোন</h2><p>আপনার তথ্য জমা দিন এবং ShikkhaSetu-তে শিক্ষক হিসেবে যুক্ত হোন।</p></div>
-<div class="form-wrap"> 
-<form id="tutorForm" novalidate><div class="form-grid">
-<div class="form-section-title">ব্যক্তিগত তথ্য</div>
-<div class="field"><label for="tName">শিক্ষকের নাম *</label><input id="tName" name="tutorName" required maxlength="80" placeholder="আপনার পূর্ণ নাম"></div>
-<div class="field"><label for="tMobile">মোবাইল নম্বর *</label><input id="tMobile" name="mobile" required inputmode="numeric" placeholder="01XXXXXXXXX" maxlength="14"></div>
-<div class="field"><label for="tEmail">ইমেইল (ঐচ্ছিক)</label><input id="tEmail" name="email" type="email" placeholder="name@example.com"></div>
-<div class="field"><label for="tPhoto">প্রোফাইল ছবির HTTPS URL (ঐচ্ছিক)</label><input id="tPhoto" name="profilePhoto" type="url" placeholder="https://..."><div class="hint">সরাসরি ছবির HTTPS লিংক দিন; ফাইল আপলোড এখানে সমর্থিত নয়।</div></div>
-<div class="field"><label for="tDivision">বিভাগ *</label><select id="tDivision" name="division" required><option value="">বিভাগ নির্বাচন করুন</option></select></div>
-<div class="field"><label for="tDistrict">জেলা *</label><select id="tDistrict" name="district" required><option value="">আগে বিভাগ নির্বাচন করুন</option></select></div>
-<div class="field full"><label for="tAddress">বর্তমান ঠিকানা *</label><input id="tAddress" name="currentAddress" required maxlength="180" placeholder="এলাকা, থানা/উপজেলা"></div>
-<div class="form-section-title">শিক্ষাগত তথ্য</div>
-<div class="field"><label for="tUniversity">বিশ্ববিদ্যালয়ের নাম *</label><input id="tUniversity" name="university" required maxlength="120" placeholder="বিশ্ববিদ্যালয়ের নাম"></div>
-<div class="field"><label for="tDepartment">বিভাগ / ডিপার্টমেন্ট *</label><input id="tDepartment" name="department" required maxlength="100" placeholder="যেমন: Statistics"></div>
-<div class="field"><label for="tYear">বর্তমান শিক্ষাবর্ষ *</label><select id="tYear" name="academicYear" required><option value="">নির্বাচন করুন</option><option>1st Year</option><option>2nd Year</option><option>3rd Year</option><option>4th Year</option><option>5th Year</option><option>Masters</option><option>Other</option></select></div>
-<div class="field"><label>যেসব শ্রেণি পড়াতে পারবেন *</label><div class="check-grid" id="classChecks"></div></div>
-<div class="form-section-title">টিউশন সংক্রান্ত তথ্য</div>
-<div class="field full"><label>যেসব বিষয় পড়াতে পারবেন * (একাধিক নির্বাচন করুন)</label><div class="check-grid" id="subjectChecks"></div><div class="hint">তালিকায় না থাকলে নিচের অন্যান্য বিষয় ঘরে লিখুন।</div></div>
-<div class="field"><label for="tOtherSubject">অন্যান্য বিষয় (ঐচ্ছিক)</label><input id="tOtherSubject" placeholder="কমা দিয়ে আলাদা করুন"></div>
-<div class="field"><label for="tLocations">পড়ানোর এলাকা *</label><input id="tLocations" required placeholder="যেমন: সোনাডাঙ্গা, খুলনা"></div>
-<div class="field"><label for="tSalary">প্রত্যাশিত মাসিক বেতন (টাকা) *</label><input id="tSalary" type="number" min="500" max="200000" required placeholder="যেমন: 5000"></div>
-<div class="field"><label for="tHours">সপ্তাহে সর্বোচ্চ সময় (ঘণ্টা) *</label><input id="tHours" type="number" min="1" max="80" required placeholder="যেমন: 12"></div>
-<div class="field full"><label for="tExperience">পড়ানোর অভিজ্ঞতা</label><input id="tExperience" maxlength="200" placeholder="যেমন: ১ বছর / নতুন শিক্ষক"></div>
-<div class="honeypot"><label>এই ঘরটি পূরণ করবেন না<input name="website" id="tWebsite" tabindex="-1" autocomplete="off"></label></div>
-</div><div class="notice" id="formNotice" role="status"></div><div class="submit-row"><button class="btn btn-primary" id="submitBtn" type="submit"><i data-lucide="send"></i> প্রোফাইল জমা দিন</button></div><p class="hint">জমা দেওয়ার মাধ্যমে আপনি সম্মতি দিচ্ছেন যে আপনার নির্বাচিত পাবলিক প্রোফাইল তথ্য অভিভাবকরা দেখতে পারবেন। আপনার মোবাইল নম্বর ও ইমেইল সার্চে প্রকাশ করা হবে না।</p></form></div></div></section>
-<section class="section" id="about"><div class="container"><div class="section-head"><span class="eyebrow">আমাদের সম্পর্কে</span><h2>শিক্ষার সংযোগ আরও সহজ করতে</h2><p>ShikkhaSetu বিশ্ববিদ্যালয়ের শিক্ষার্থী শিক্ষক ও অভিভাবকদের একটি সহজ যোগাযোগের প্ল্যাটফর্ম।</p></div><div class="about-grid"><article class="about-card"><i data-lucide="search-check"></i><h3>সহজ অনুসন্ধান</h3><p>জেলা, বিষয়, বিশ্ববিদ্যালয় ও বেতনের ভিত্তিতে শিক্ষক খুঁজে নিন।</p></article><article class="about-card"><i data-lucide="graduation-cap"></i><h3>শিক্ষার্থী শিক্ষকদের সুযোগ</h3><p>বিশ্ববিদ্যালয়ের শিক্ষার্থীরা নিজেদের দক্ষতা ও টিউশন-সংক্রান্ত তথ্য প্রকাশ করতে পারবেন।</p></article><article class="about-card"><i data-lucide="shield-check"></i><h3>তথ্যভিত্তিক প্রোফাইল</h3><p>প্রতিটি প্রোফাইলের তথ্য জমা দেওয়ার সময় যাচাই করা হয়; তবে পরিচয় ও যোগ্যতা অভিভাবককে নিজ দায়িত্বে নিশ্চিত করতে হবে।</p></article></div></div></section>
-</main>
-<footer class="footer"><div class="container footer-inner"><div><a class="brand" href="#home"><span class="brand-mark"><i data-lucide="graduation-cap"></i></span><span>ShikkhaSetu<small>শিক্ষাসেতু</small></span></a><p>শিক্ষার্থী ও অভিভাবকের মাঝে শিক্ষার সেতুবন্ধন।</p></div><p>© <span id="yearNow"></span> ShikkhaSetu. সর্বস্বত্ব সংরক্ষিত।</p></div></footer>
-<div class="modal-backdrop" id="detailBackdrop" role="dialog" aria-modal="true" aria-labelledby="detailName"><div class="modal"><button class="modal-close" id="closeModal" aria-label="বন্ধ করুন"><i data-lucide="x"></i></button><div id="detailContent"></div></div></div><div class="toast" id="toast" role="status"></div>
-<script>
-(() => {
-'use strict';
-const $ = id => document.getElementById(id);
-const districts = {
-'ঢাকা':['ঢাকা','গাজীপুর','গোপালগঞ্জ','কিশোরগঞ্জ','মাদারীপুর','মানিকগঞ্জ','মুন্সীগঞ্জ','নারায়ণগঞ্জ','নরসিংদী','রাজবাড়ী','শরীয়তপুর','ফরিদপুর','টাঙ্গাইল'],
-'চট্টগ্রাম':['চট্টগ্রাম','কক্সবাজার','কুমিল্লা','চাঁদপুর','ব্রাহ্মণবাড়িয়া','লক্ষ্মীপুর','নোয়াখালী','ফেনী','খাগড়াছড়ি','রাঙামাটি','বান্দরবান'],
-'রাজশাহী':['রাজশাহী','বগুড়া','জয়পুরহাট','নওগাঁ','নাটোর','চাঁপাইনবাবগঞ্জ','পাবনা','সিরাজগঞ্জ'],
-'খুলনা':['খুলনা','বাগেরহাট','চুয়াডাঙ্গা','যশোর','ঝিনাইদহ','কুষ্টিয়া','মাগুরা','মেহেরপুর','নড়াইল','সাতক্ষীরা'],
-'বরিশাল':['বরিশাল','বরগুনা','ভোলা','ঝালকাঠি','পটুয়াখালী','পিরোজপুর'],
-'সিলেট':['সিলেট','হবিগঞ্জ','মৌলভীবাজার','সুনামগঞ্জ'],
-'রংপুর':['রংপুর','দিনাজপুর','গাইবান্ধা','কুড়িগ্রাম','লালমনিরহাট','নীলফামারী','পঞ্চগড়','ঠাকুরগাঁও'],
-'ময়মনসিংহ':['ময়মনসিংহ','জামালপুর','নেত্রকোণা','শেরপুর']
-};
-const subjects=['বাংলা','ইংরেজি','গণিত','উচ্চতর গণিত','সাধারণ বিজ্ঞান','পদার্থবিজ্ঞান','রসায়ন','জীববিজ্ঞান','আইসিটি','হিসাববিজ্ঞান','অর্থনীতি','পরিসংখ্যান'];
-const classes=['প্রাথমিক (১ম–৫ম)','৬ষ্ঠ–৮ম','৯ম–১০ম','একাদশ–দ্বাদশ','ভর্তি প্রস্তুতি'];
-let currentPage=1, lastPages=1, busy=false;
-function options(select, items, first){select.innerHTML=`<option value="">${first}</option>`+items.map(x=>`<option value="${esc(x)}">${esc(x)}</option>`).join('');}
-function fillDistrict(divisionId,districtId){const d=$(divisionId).value;options($(districtId),d?districts[d]:Object.values(districts).flat(),d?'সকল জেলা':'সকল জেলা');}
-function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-function checkedValues(id){return [...$(id).querySelectorAll('input:checked')].map(x=>x.value);}
-function makeChecks(id,items){$(id).innerHTML=items.map((x,i)=>`<label class="check-pill"><input type="checkbox" value="${esc(x)}" id="${id}_${i}"> ${esc(x)}</label>`).join('');}
-function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),4500);}
-function showNotice(type,msg){const n=$('formNotice');n.className='notice '+type;n.textContent=msg;}
-function readFilters(){return {name:$('qName').value.trim(),division:$('qDivision').value,district:$('qDistrict').value,university:$('qUniversity').value.trim(),department:$('qDepartment').value.trim(),academicYear:$('qYear').value,subject:$('qSubject').value.trim(),location:$('qLocation').value.trim(),minSalary:$('qMin').value,maxSalary:$('qMax').value,experience:$('qExperience').value,classLevel:$('qClass').value.trim(),sort:$('sortBy').value,page:currentPage,limit:10};}
-function loading(){ $('tutorResults').innerHTML='<div class="loading"><div class="spinner"></div>শিক্ষকের তথ্য খোঁজা হচ্ছে...</div>'; }
-function card(t){const photo=t.ProfilePhoto?`<img class="avatar" src="${esc(t.ProfilePhoto)}" alt="${esc(t.TutorName)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'">`:`<div class="avatar">${esc((t.TutorName||'শি').slice(0,1))}</div>`;
-return `<article class="tutor-card"><div class="tutor-head">${photo}<div><h4>${esc(t.TutorName)}</h4><p>${esc(t.University)} · ${esc(t.Department)}</p></div></div><div class="tag-row"><span class="tag">${esc(t.AcademicYear)}</span><span class="tag green">${esc(t.District)}</span></div><div class="tutor-meta"><span><i data-lucide="book-open"></i>${esc(t.TeachingSubjects)}</span><span><i data-lucide="map-pin"></i>${esc(t.TeachingLocations)}</span><span><i data-lucide="clock"></i>সপ্তাহে ${Number(t.MaximumHours)||0} ঘণ্টা</span><span><i data-lucide="award"></i>${esc(t.Experience||'তথ্য দেওয়া হয়নি')}</span></div><div class="card-bottom"><div class="salary">৳${Number(t.ExpectedSalary||0).toLocaleString('en-BD')} <small>/ মাস</small></div><button class="btn btn-light" data-detail="${esc(t.TutorID)}">বিস্তারিত দেখুন <i data-lucide="arrow-up-right"></i></button></div></article>`;}
-async function loadTutors(){if(!window.ShikkhaAPI){$('tutorResults').innerHTML='<div class="error-box">API প্রস্তুত হয়নি। config.js ও api.js পরীক্ষা করুন।</div>';return;}loading();try{const data=await ShikkhaAPI.searchTutors(readFilters());const tutors=data.tutors||[];$('resultCount').textContent=`মোট ${Number(data.total||0).toLocaleString('bn-BD')} জন শিক্ষক পাওয়া গেছে`;$('tutorResults').innerHTML=tutors.length?tutors.map(card).join(''):'<div class="empty"><i data-lucide="search-x"></i><h3>কোনো শিক্ষক পাওয়া যায়নি</h3><p>ফিল্টার পরিবর্তন করে আবার চেষ্টা করুন।</p></div>';lastPages=data.pages||1;renderPages();if(window.lucide)lucide.createIcons();}catch(e){$('resultCount').textContent='';$('tutorResults').innerHTML=`<div class="error-box"><i data-lucide="wifi-off"></i><h3>তথ্য লোড করা যায়নি</h3><p>${esc(e.message)}</p><button class="btn btn-outline" onclick="document.getElementById('searchBtn').click()">আবার চেষ্টা করুন</button></div>`;if(window.lucide)lucide.createIcons();}}
-function renderPages(){const p=$('pagination');p.innerHTML='';if(lastPages<=1)return;const prev=document.createElement('button');prev.textContent='আগের';prev.disabled=currentPage<=1;prev.onclick=()=>{currentPage--;loadTutors();};p.append(prev);const label=document.createElement('span');label.textContent=`${currentPage} / ${lastPages}`;p.append(label);const next=document.createElement('button');next.textContent='পরের';next.disabled=currentPage>=lastPages;next.onclick=()=>{currentPage++;loadTutors();};p.append(next);}
-async function showDetails(id){$('detailContent').innerHTML='<div class="loading"><div class="spinner"></div>তথ্য লোড হচ্ছে...</div>';$('detailBackdrop').classList.add('open');try{const t=await ShikkhaAPI.getTutorDetails(id);const fields=[['বিশ্ববিদ্যালয়',t.University],['ডিপার্টমেন্ট',t.Department],['শিক্ষাবর্ষ',t.AcademicYear],['বিভাগ',t.Division],['জেলা',t.District],['পড়ানোর বিষয়',t.TeachingSubjects],['পড়ানোর এলাকা',t.TeachingLocations],['মাসিক প্রত্যাশিত বেতন','৳'+Number(t.ExpectedSalary).toLocaleString('en-BD')],['অভিজ্ঞতা',t.Experience||'উল্লেখ নেই'],['সপ্তাহে সর্বোচ্চ সময়',Number(t.MaximumHours)+' ঘণ্টা'],['যেসব শ্রেণি পড়াবেন',t.ClassLevels],['Tutor ID',t.TutorID]];$('detailContent').innerHTML=`<div class="tutor-head">${t.ProfilePhoto?`<img class="avatar" src="${esc(t.ProfilePhoto)}" alt="">`:`<div class="avatar">${esc((t.TutorName||'শি').slice(0,1))}</div>`}<div><h2 id="detailName">${esc(t.TutorName)}</h2><p>${esc(t.University)} · ${esc(t.Department)}</p></div></div><div class="detail-grid">${fields.map(([k,v])=>`<div class="detail-item"><small>${esc(k)}</small><strong>${esc(v||'তথ্য দেওয়া হয়নি')}</strong></div>`).join('')}</div><p class="hint">নিরাপত্তার জন্য মোবাইল নম্বর, ইমেইল ও পূর্ণ বর্তমান ঠিকানা প্রকাশ করা হয় না। যোগাযোগের আগে অভিভাবক নিজ দায়িত্বে পরিচয় ও যোগ্যতা যাচাই করবেন।</p>`;}catch(e){$('detailContent').innerHTML=`<div class="error-box">${esc(e.message)}</div>`;}}
-async function loadStats(){try{const s=await ShikkhaAPI.getTutorStatistics();$('statTutors').textContent=Number(s.totalTutors||0).toLocaleString('bn-BD');$('statUniversities').textContent=Number(s.totalUniversities||0).toLocaleString('bn-BD');$('statDistricts').textContent=Number(s.totalDistricts||0).toLocaleString('bn-BD');}catch(_){$('statTutors').textContent=$('statUniversities').textContent=$('statDistricts').textContent='—';}}
-function resetFilters(){['qName','qUniversity','qDepartment','qSubject','qLocation','qMin','qMax','qExperience','qClass'].forEach(id=>$(id).value='');$('qDivision').value='';fillDistrict('qDivision','qDistrict');$('qYear').value='';$('sortBy').value='newest';currentPage=1;loadTutors();}
-$('tutorForm').addEventListener('submit',async e=>{e.preventDefault();if(busy)return;const form=e.currentTarget;const subjectsSelected=checkedValues('subjectChecks');const other=$('tOtherSubject').value.split(',').map(x=>x.trim()).filter(Boolean);const data={tutorName:$('tName').value.trim(),mobile:$('tMobile').value.trim(),email:$('tEmail').value.trim(),profilePhoto:$('tPhoto').value.trim(),division:$('tDivision').value,district:$('tDistrict').value,currentAddress:$('tAddress').value.trim(),university:$('tUniversity').value.trim(),department:$('tDepartment').value.trim(),academicYear:$('tYear').value,teachingSubjects:[...new Set([...subjectsSelected,...other])],teachingLocations:$('tLocations').value.split(',').map(x=>x.trim()).filter(Boolean),expectedSalary:$('tSalary').value,experience:$('tExperience').value.trim(),maximumHours:$('tHours').value,classLevels:checkedValues('classChecks'),website:$('tWebsite').value};
-if(!form.reportValidity())return;if(!data.teachingSubjects.length||!data.classLevels.length){showNotice('error','কমপক্ষে একটি পড়ানোর বিষয় এবং একটি শ্রেণি নির্বাচন করুন।');return;}if(!/^01[3-9]\d{8}$/.test(data.mobile.replace(/[\s-]/g,''))){showNotice('error','সঠিক ১১ সংখ্যার বাংলাদেশি মোবাইল নম্বর দিন।');return;}if(data.teachingLocations.length===0){showNotice('error','কমপক্ষে একটি পড়ানোর এলাকা লিখুন।');return;}busy=true;$('submitBtn').disabled=true;$('submitBtn').innerHTML='<span class="spinner" style="width:17px;height:17px;margin:0;border-width:2px"></span> জমা হচ্ছে...';showNotice('success','আপনার তথ্য জমা হচ্ছে। এই সময় পেজ বন্ধ করবেন না।');
-try{const result=await ShikkhaAPI.submitTutor(data);showNotice('success',`${result.message}। আপনার Tutor ID: ${result.data.tutorID}`);form.reset();$('tDistrict').innerHTML='<option value="">আগে বিভাগ নির্বাচন করুন</option>';document.querySelectorAll('#subjectChecks input,#classChecks input').forEach(x=>x.checked=false);await loadStats();currentPage=1;await loadTutors();toast('প্রোফাইল সফলভাবে যুক্ত হয়েছে।');}catch(err){showNotice('error',err.message);}
-finally{busy=false;$('submitBtn').disabled=false;$('submitBtn').innerHTML='<i data-lucide="send"></i> প্রোফাইল জমা দিন';if(window.lucide)lucide.createIcons();}});
-$('searchBtn').addEventListener('click',()=>{currentPage=1;loadTutors();$('filters').classList.remove('open');});$('clearFilters').addEventListener('click',resetFilters);$('sortBy').addEventListener('change',()=>{currentPage=1;loadTutors();});$('openFilters').addEventListener('click',()=>$('filters').classList.add('open'));$('closeModal').addEventListener('click',()=>$('detailBackdrop').classList.remove('open'));$('detailBackdrop').addEventListener('click',e=>{if(e.target===$('detailBackdrop'))$('detailBackdrop').classList.remove('open');});$('tutorResults').addEventListener('click',e=>{const b=e.target.closest('[data-detail]');if(b)showDetails(b.dataset.detail);});$('menuToggle').addEventListener('click',()=>$('navLinks').classList.toggle('open'));$('navLinks').addEventListener('click',()=>$('navLinks').classList.remove('open'));
-['qName','qUniversity','qDepartment','qSubject','qLocation'].forEach(id=>$(id).addEventListener('keydown',e=>{if(e.key==='Enter'){currentPage=1;loadTutors();}}));['qDivision','qDistrict','qYear','qExperience'].forEach(id=>$(id).addEventListener('change',()=>{if(id==='qDivision')fillDistrict('qDivision','qDistrict');currentPage=1;loadTutors();}));
-options($('tDivision'),Object.keys(districts),'বিভাগ নির্বাচন করুন');options($('qDivision'),Object.keys(districts),'সকল বিভাগ');fillDistrict('qDivision','qDistrict');$('tDivision').addEventListener('change',()=>fillDistrict('tDivision','tDistrict'));$('qDivision').addEventListener('change',()=>fillDistrict('qDivision','qDistrict'));makeChecks('subjectChecks',subjects);makeChecks('classChecks',classes);$('yearNow').textContent=new Date().getFullYear();if(window.lucide)lucide.createIcons();
-// Wait for deferred API script before initial data calls.
-const waitApi=()=>{if(window.ShikkhaAPI){loadStats();loadTutors();}else setTimeout(waitApi,80);};waitApi();
-})();
-</script>
-</body></html>
+
+  <!-- NAVIGATION -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href="#home">
+        <span class="brand-icon">শ</span>
+        <span>ShikkhaSetu</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#home">হোম</a>
+        <a href="#about">আমাদের সম্পর্কে</a>
+        <a href="#search">টিউটর খুঁজুন</a>
+        <a href="#register">টিউটর হিসেবে যুক্ত হোন</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-outline" href="#search">টিউটর খুঁজুন</a>
+        <a class="btn btn-primary" href="#register">রেজিস্ট্রেশন</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="মেনু খুলুন">☰</button>
+      </div>
+    </div>
+
+    <nav class="mobile-nav" id="mobileNav">
+      <a href="#home">হোম</a>
+      <a href="#about">আমাদের সম্পর্কে</a>
+      <a href="#search">টিউটর খুঁজুন</a>
+      <a href="#register">টিউটর হিসেবে যুক্ত হোন</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <span class="hero-tag">বাংলাদেশের বিশ্ববিদ্যালয় শিক্ষার্থীদের জন্য</span>
+          <h1>শিক্ষার নতুন সংযোগ,<br><span>ShikkhaSetu</span></h1>
+          <p>
+            বিশ্ববিদ্যালয়ের শিক্ষার্থীদের দক্ষতা ও অভিভাবকদের প্রয়োজনের
+            মধ্যে তৈরি হোক সহজ ও নির্ভরযোগ্য সংযোগ।
+          </p>
+          <div class="hero-buttons">
+            <a class="btn btn-primary" href="#search">টিউটর খুঁজুন →</a>
+            <a class="btn btn-outline" href="#register">টিউটর হিসেবে যুক্ত হোন</a>
+          </div>
+        </div>
+
+        <div class="hero-art">
+          <div class="hero-circle">🎓</div>
+          <div class="floating-note note-one">📚 দক্ষ শিক্ষার্থী টিউটর</div>
+          <div class="floating-note note-two">🤝 সহজ সংযোগ</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATISTICS -->
+    <div class="container">
+      <div class="stats">
+        <div class="stat-card">
+          <strong id="totalTutors">—</strong>
+          <span>নিবন্ধিত টিউটর</span>
+        </div>
+        <div class="stat-card">
+          <strong id="totalUniversities">—</strong>
+          <span>বিশ্ববিদ্যালয়</span>
+        </div>
+        <div class="stat-card">
+          <strong id="totalDistricts">—</strong>
+          <span>জেলা</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABOUT / USER TYPES -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-heading">
+          <h2>ShikkhaSetu কীভাবে কাজ করে?</h2>
+          <p>টিউটর ও অভিভাবক—উভয়ের জন্য সহজ একটি প্ল্যাটফর্ম।</p>
+        </div>
+
+        <div class="role-grid">
+          <article class="role-card">
+            <div class="role-icon">👨‍🎓</div>
+            <h3>বিশ্ববিদ্যালয় শিক্ষার্থীদের জন্য</h3>
+            <p>
+              নিজের পরিচয়, বিশ্ববিদ্যালয়, বিভাগ, পড়ানোর বিষয়,
+              এলাকা ও প্রত্যাশিত বেতন দিয়ে টিউটর প্রোফাইল তৈরি করুন।
+            </p>
+            <a class="btn btn-primary" href="#register">টিউটর রেজিস্ট্রেশন</a>
+          </article>
+
+          <article class="role-card">
+            <div class="role-icon">👨‍👩‍👧</div>
+            <h3>অভিভাবকদের জন্য</h3>
+            <p>
+              নাম, বিশ্ববিদ্যালয়, জেলা, বিষয় ও বেতনের সীমা অনুযায়ী
+              পছন্দের টিউটর খুঁজে দেখুন।
+            </p>
+            <a class="btn btn-outline" href="#search">টিউটর সার্চ করুন</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEARCH -->
+    <section class="section search-section" id="search">
+      <div class="container">
+        <div class="section-heading">
+          <h2>আপনার পছন্দের টিউটর খুঁজুন</h2>
+          <p>প্রয়োজন অনুযায়ী ফিল্টার ব্যবহার করে টিউটর খুঁজে নিন।</p>
+        </div>
+
+        <div class="search-panel">
+          <form id="searchForm">
+            <div class="filter-grid">
+              <div class="field">
+                <label for="filterName">টিউটরের নাম</label>
+                <input id="filterName" type="search" placeholder="নাম লিখুন">
+              </div>
+
+              <div class="field">
+                <label for="filterUniversity">বিশ্ববিদ্যালয়</label>
+                <input id="filterUniversity" type="text" placeholder="বিশ্ববিদ্যালয়ের নাম">
+              </div>
+
+              <div class="field">
+                <label for="filterDivision">বিভাগ</label>
+                <select id="filterDivision">
+                  <option value="">সকল বিভাগ</option>
+                  <option>ঢাকা</option>
+                  <option>চট্টগ্রাম</option>
+                  <option>রাজশাহী</option>
+                  <option>খুলনা</option>
+                  <option>বরিশাল</option>
+                  <option>সিলেট</option>
+                  <option>রংপুর</option>
+                  <option>ময়মনসিংহ</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="filterDistrict">জেলা</label>
+                <input id="filterDistrict" type="text" placeholder="জেলার নাম">
+              </div>
+
+              <div class="field">
+                <label for="filterSubject">পড়ানোর বিষয়</label>
+                <input id="filterSubject" type="text" placeholder="যেমন: Mathematics">
+              </div>
+
+              <div class="field">
+                <label for="filterDepartment">বিভাগ / ডিপার্টমেন্ট</label>
+                <input id="filterDepartment" type="text" placeholder="ডিপার্টমেন্ট">
+              </div>
+
+              <div class="field">
+                <label for="filterAcademicYear">অধ্যয়ন বর্ষ</label>
+                <select id="filterAcademicYear">
+                  <option value="">সকল বর্ষ</option>
+                  <option>1st Year</option>
+                  <option>2nd Year</option>
+                  <option>3rd Year</option>
+                  <option>4th Year</option>
+                  <option>Masters</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="filterLocation">পড়ানোর এলাকা</label>
+                <input id="filterLocation" type="text" placeholder="এলাকার নাম">
+              </div>
+
+              <div class="field">
+                <label for="filterMinSalary">সর্বনিম্ন বেতন (৳)</label>
+                <input id="filterMinSalary" type="number" min="0" placeholder="যেমন: 3000">
+              </div>
+
+              <div class="field">
+                <label for="filterMaxSalary">সর্বোচ্চ বেতন (৳)</label>
+                <input id="filterMaxSalary" type="number" min="0" placeholder="যেমন: 8000">
+              </div>
+
+              <div class="field">
+                <label for="filterExperience">অভিজ্ঞতা</label>
+                <select id="filterExperience">
+                  <option value="">যেকোনো অভিজ্ঞতা</option>
+                  <option value="0">নতুন টিউটর</option>
+                  <option value="1">১ বছর বা বেশি</option>
+                  <option value="2">২ বছর বা বেশি</option>
+                  <option value="3">৩ বছর বা বেশি</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="filterSort">সাজানোর নিয়ম</label>
+                <select id="filterSort">
+                  <option value="newest">নতুন টিউটর আগে</option>
+                  <option value="salary_low">কম বেতন আগে</option>
+                  <option value="salary_high">বেশি বেতন আগে</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="filter-actions">
+              <button class="btn btn-primary" type="submit">🔍 সার্চ করুন</button>
+              <button class="btn btn-light" type="reset" id="resetSearch">ফিল্টার মুছুন</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="results-top">
+          <h3>টিউটর তালিকা</h3>
+          <span id="resultCount" style="color:var(--muted)">টিউটর খোঁজা হচ্ছে...</span>
+        </div>
+
+        <div class="results-grid" id="tutorResults">
+          <div class="loading-state">টিউটরদের তথ্য লোড হচ্ছে...</div>
+        </div>
+
+        <div class="pagination" id="pagination"></div>
+      </div>
+    </section>
+
+    <!-- REGISTRATION -->
+    <section class="section register-section" id="register">
+      <div class="container">
+        <div class="section-heading">
+          <h2>টিউটর হিসেবে রেজিস্ট্রেশন করুন</h2>
+          <p>সঠিক তথ্য দিয়ে ফর্মটি পূরণ করুন।</p>
+        </div>
+
+        <div class="form-card">
+          <h3>টিউটর রেজিস্ট্রেশন ফর্ম</h3>
+          <p class="form-intro">আপনার তথ্য পূরণ করে Submit করুন।</p>
+
+          <form id="tutorForm">
+            <div class="form-grid">
+              <div class="field">
+                <label for="tutorName">সম্পূর্ণ নাম *</label>
+                <input id="tutorName" name="tutorName" required maxlength="100" placeholder="আপনার নাম">
+              </div>
+
+              <div class="field">
+                <label for="mobile">মোবাইল নম্বর *</label>
+                <input id="mobile" name="mobile" type="tel" required maxlength="20" placeholder="01XXXXXXXXX">
+              </div>
+
+              <div class="field">
+                <label for="email">ইমেইল</label>
+                <input id="email" name="email" type="email" placeholder="example@gmail.com">
+              </div>
+
+              <div class="field">
+                <label for="profilePhoto">প্রোফাইল ছবির লিংক</label>
+                <input id="profilePhoto" name="profilePhoto" type="url" placeholder="https://...">
+              </div>
+
+              <div class="field">
+                <label for="division">বিভাগ *</label>
+                <select id="division" name="division" required>
+                  <option value="">বিভাগ নির্বাচন করুন</option>
+                  <option>ঢাকা</option>
+                  <option>চট্টগ্রাম</option>
+                  <option>রাজশাহী</option>
+                  <option>খুলনা</option>
+                  <option>বরিশাল</option>
+                  <option>সিলেট</option>
+                  <option>রংপুর</option>
+                  <option>ময়মনসিংহ</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="district">জেলা *</label>
+                <input id="district" name="district" required placeholder="আপনার জেলা">
+              </div>
+
+              <div class="field field-full">
+                <label for="currentAddress">বর্তমান ঠিকানা</label>
+                <input id="currentAddress" name="currentAddress" placeholder="এলাকা, থানা, জেলা">
+              </div>
+
+              <div class="field">
+                <label for="university">বিশ্ববিদ্যালয়ের নাম *</label>
+                <input id="university" name="university" required placeholder="বিশ্ববিদ্যালয়ের নাম">
+              </div>
+
+              <div class="field">
+                <label for="department">ডিপার্টমেন্ট *</label>
+                <input id="department" name="department" required placeholder="আপনার বিভাগ">
+              </div>
+
+              <div class="field">
+                <label for="academicYear">অধ্যয়ন বর্ষ *</label>
+                <select id="academicYear" name="academicYear" required>
+                  <option value="">বর্ষ নির্বাচন করুন</option>
+                  <option>1st Year</option>
+                  <option>2nd Year</option>
+                  <option>3rd Year</option>
+                  <option>4th Year</option>
+                  <option>Masters</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="expectedSalary">প্রত্যাশিত মাসিক বেতন (৳) *</label>
+                <input id="expectedSalary" name="expectedSalary" type="number" min="0" required placeholder="যেমন: 5000">
+              </div>
+
+              <div class="field">
+                <label for="experience">পড়ানোর অভিজ্ঞতা (বছর)</label>
+                <input id="experience" name="experience" type="number" min="0" max="50" value="0">
+              </div>
+
+              <div class="field">
+                <label for="maximumHours">সর্বোচ্চ পড়ানোর সময় (ঘণ্টা/দিন)</label>
+                <input id="maximumHours" name="maximumHours" type="number" min="1" max="24" placeholder="যেমন: 3">
+              </div>
+
+              <div class="field field-full">
+                <label>যেসব বিষয় পড়াতে পারবেন *</label>
+                <div class="check-group" id="subjectChecks">
+                  <label class="check-option"><input type="checkbox" name="subjects" value="Mathematics"> Mathematics</label>
+                  <label class="check-option"><input type="checkbox" name="subjects" value="English"> English</label>
+                  <label class="check-option"><input type="checkbox" name="subjects" value="Physics"> Physics</label>
+                  <label class="check-option"><input type="checkbox" name="subjects" value="Chemistry"> Chemistry</label>
+                  <label class="check-option"><input type="checkbox" name="subjects" value="Biology"> Biology</label>
+                  <label class="check-option"><input type="checkbox" name="subjects" value="ICT"> ICT</label>
+                  <label class="check-option"><input type="checkbox" name="subjects" value="Bangla"> Bangla</label>
+                  <label class="check-option"><input type="checkbox" name="subjects" value="Statistics"> Statistics</label>
+                  <label class="check-option"><input type="checkbox" name="subjects" value="Accounting"> Accounting</label>
+                  <label class="check-option"><input type="checkbox" name="subjects" value="Other"> Other</label>
+                </div>
+              </div>
+
+              <div class="field field-full">
+                <label>যেসব এলাকায় পড়াতে পারবেন *</label>
+                <input id="teachingLocations" name="teachingLocations" required placeholder="কমা দিয়ে এলাকার নাম লিখুন (যেমন: Sonadanga, Nirala)">
+              </div>
+
+              <div class="field field-full">
+                <label>যেসব শ্রেণির শিক্ষার্থী পড়াতে পারবেন</label>
+                <div class="check-group">
+                  <label class="check-option"><input type="checkbox" name="classLevels" value="Class 1-5"> Class 1-5</label>
+                  <label class="check-option"><input type="checkbox" name="classLevels" value="Class 6-8"> Class 6-8</label>
+                  <label class="check-option"><input type="checkbox" name="classLevels" value="Class 9-10"> Class 9-10</label>
+                  <label class="check-option"><input type="checkbox" name="classLevels" value="HSC"> HSC</label>
+                  <label class="check-option"><input type="checkbox" name="classLevels" value="Admission"> Admission</label>
+                  <label class="check-option"><input type="checkbox" name="classLevels" value="University"> University</label>
+                </div>
+              </div>
+
+              <div class="field field-full">
+                <label for="website">অন্য কোনো প্রোফাইল লিংক (ঐচ্ছিক)</label>
+                <input id="website" name="website" type="url" placeholder="https://...">
+              </div>
+            </div>
+
+            <div id="formMessage" class="form-message" role="status"></div>
+
+            <div class="submit-row">
+              <button class="btn btn-primary" id="submitBtn" type="submit">
+                রেজিস্ট্রেশন Submit করুন →
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3>ShikkhaSetu</h3>
+          <p>বিশ্ববিদ্যালয়ের শিক্ষার্থীদের সাথে শিক্ষার নতুন সংযোগ।</p>
+        </div>
+        <div>
+          <h4>গুরুত্বপূর্ণ লিংক</h4>
+          <a href="#home">হোম</a>
+          <a href="#search">টিউটর খুঁজুন</a>
+          <a href="#register">টিউটর রেজিস্ট্রেশন</a>
+        </div>
+        <div>
+          <h4>আমাদের লক্ষ্য</h4>
+          <p>শিক্ষার্থী টিউটর ও অভিভাবকদের মধ্যে সহজ সংযোগ তৈরি করা।</p>
+        </div>
+      </div>
+      <div class="copyright">
+        © <span id="currentYear"></span> ShikkhaSetu. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- TUTOR DETAILS MODAL -->
+  <div class="modal" id="tutorModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose" aria-label="বন্ধ করুন">×</button>
+      <div id="modalBody">
+        <h3 id="modalTitle">টিউটরের বিস্তারিত</h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- IMPORTANT: config.js must load before api.js -->
+  <script src="config.js"></script>
+  <script src="api.js" defer></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      "use strict";
+
+      const $ = (id) => document.getElementById(id);
+
+      let currentPage = 1;
+      const pageLimit = 9;
+      let currentFilters = {};
+
+      $("currentYear").textContent = new Date().getFullYear();
+
+      // Mobile navigation
+      $("menuToggle").addEventListener("click", function () {
+        $("mobileNav").classList.toggle("open");
+      });
+
+      document.querySelectorAll("#mobileNav a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          $("mobileNav").classList.remove("open");
+        });
+      });
+
+      // Wait until deferred api.js has loaded
+      function waitForAPI() {
+        return new Promise(function (resolve, reject) {
+          let attempts = 0;
+          const timer = setInterval(function () {
+            attempts++;
+
+            if (window.ShikkhaAPI) {
+              clearInterval(timer);
+              resolve(window.ShikkhaAPI);
+            } else if (attempts >= 50) {
+              clearInterval(timer);
+              reject(new Error("api.js লোড হয়নি। GitHub-এ api.js ফাইলটি আছে কি না এবং ফাইলের নাম ঠিক আছে কি না দেখুন।"));
+            }
+          }, 100);
+        });
+      }
+
+      function unwrap(result) {
+        if (result && typeof result === "object") {
+          if (result.data !== undefined) return result.data;
+          if (result.result !== undefined) return result.result;
+        }
+        return result;
+      }
+
+      function getArray(result) {
+        const data = unwrap(result);
+
+        if (Array.isArray(data)) return data;
+        if (data && Array.isArray(data.tutors)) return data.tutors;
+        if (data && Array.isArray(data.results)) return data.results;
+        if (data && Array.isArray(data.data)) return data.data;
+
+        return [];
+      }
+
+      function showMessage(message, type) {
+        const box = $("formMessage");
+        box.textContent = message;
+        box.className = "form-message " + type;
+      }
+
+      function safeText(value) {
+        return String(value == null ? "" : value);
+      }
+
+      function escapeHTML(value) {
+        return safeText(value).replace(/[&<>"']/g, function (character) {
+          return {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#039;"
+          }[character];
+        });
+      }
+
+      function pick(tutor, keys) {
+        for (const key of keys) {
+          if (tutor && tutor[key] !== undefined && tutor[key] !== null && tutor[key] !== "") {
+            return tutor[key];
+          }
+        }
+        return "";
+      }
+
+      function money(value) {
+        const number = Number(value);
+        return Number.isFinite(number) ? number.toLocaleString("en-BD") : safeText(value);
+      }
+
+      function renderTutorCard(tutor, index) {
+        const id = pick(tutor, ["TutorID", "tutorID", "id", "ID"]);
+        const name = pick(tutor, ["TutorName", "tutorName", "name"]) || "নাম উল্লেখ নেই";
+        const university = pick(tutor, ["University", "university"]) || "বিশ্ববিদ্যালয় উল্লেখ নেই";
+        const department = pick(tutor, ["Department", "department"]);
+        const district = pick(tutor, ["District", "district"]);
+        const division = pick(tutor, ["Division", "division"]);
+        const subjects = pick(tutor, ["TeachingSubjects", "teachingSubjects", "subjects"]);
+        const salary = pick(tutor, ["ExpectedSalary", "expectedSalary", "salary"]);
+        const photo = pick(tutor, ["ProfilePhoto", "profilePhoto", "photo"]);
+        const year = pick(tutor, ["AcademicYear", "academicYear"]);
+
+        const subjectText = Array.isArray(subjects) ? subjects.join(", ") : safeText(subjects);
+        const locationText = [district, division].filter(Boolean).join(", ");
+        const avatar = photo
+          ? `<img class="avatar" src="${escapeHTML(photo)}" alt="${escapeHTML(name)}" loading="lazy" onerror="this.style.display='none'">`
+          : `<div class="avatar avatar-placeholder">${escapeHTML(name.charAt(0))}</div>`;
+
+        return `
+          <article class="tutor-card">
+            <div class="tutor-head">
+              ${avatar}
+              <div>
+                <h4>${escapeHTML(name)}</h4>
+                <p>${escapeHTML(university)}</p>
+              </div>
+            </div>
+
+            <div class="tutor-meta">
+              ${department ? `<span class="tag">${escapeHTML(department)}</span>` : ""}
+              ${year ? `<span class="tag">${escapeHTML(year)}</span>` : ""}
+            </div>
+
+            <div class="tutor-info">
+              ${locationText ? `<div>📍 ${escapeHTML(locationText)}</div>` : ""}
+              ${subjectText ? `<div>📚 ${escapeHTML(subjectText)}</div>` : ""}
+            </div>
+
+            <div class="tutor-price">
+              ${salary !== "" ? "৳" + money(salary) + " / মাস" : "বেতন উল্লেখ নেই"}
+            </div>
+
+            <button class="btn btn-outline" type="button"
+              data-tutor-index="${index}" data-tutor-id="${escapeHTML(id)}">
+              বিস্তারিত দেখুন
+            </button>
+          </article>
+        `;
+      }
+
+      let lastTutorList = [];
+
+      function renderPagination(totalPages) {
+        const container = $("pagination");
+        container.innerHTML = "";
+
+        if (!totalPages || totalPages <= 1) return;
+
+        const previous = document.createElement("button");
+        previous.className = "page-btn";
+        previous.textContent = "‹";
+        previous.disabled = currentPage <= 1;
+        previous.addEventListener("click", function () {
+          if (currentPage > 1) {
+            currentPage--;
+            loadTutors();
+          }
+        });
+        container.appendChild(previous);
+
+        for (let page = 1; page <= totalPages; page++) {
+          const button = document.createElement("button");
+          button.className = "page-btn" + (page === currentPage ? " active" : "");
+          button.textContent = page;
+          button.addEventListener("click", function () {
+            currentPage = page;
+            loadTutors();
+          });
+          container.appendChild(button);
+        }
+
+        const next = document.createElement("button");
+        next.className = "page-btn";
+        next.textContent = "›";
+        next.disabled = currentPage >= totalPages;
+        next.addEventListener("click", function () {
+          if (currentPage < totalPages) {
+            currentPage++;
+            loadTutors();
+          }
+        });
+        container.appendChild(next);
+      }
+
+      async function loadTutors() {
+        const results = $("tutorResults");
+        results.innerHTML = `<div class="loading-state">টিউটরদের তথ্য লোড হচ্ছে...</div>`;
+        $("resultCount").textContent = "লোড হচ্ছে...";
+
+        try {
+          const api = await waitForAPI();
+
+          const filters = {
+            ...currentFilters,
+            page: currentPage,
+            limit: pageLimit
+          };
+
+          const response = await api.searchTutors(filters);
+          const data = unwrap(response);
+          const tutors = getArray(response);
+
+          lastTutorList = tutors;
+
+          if (!tutors.length) {
+            results.innerHTML = `<div class="empty-state">দুঃখিত, কোনো টিউটর পাওয়া যায়নি। অন্য ফিল্টার দিয়ে চেষ্টা করুন।</div>`;
+            $("resultCount").textContent = "কোনো টিউটর পাওয়া যায়নি";
+            $("pagination").innerHTML = "";
+            return;
+          }
+
+          results.innerHTML = tutors.map(renderTutorCard).join("");
+
+          const total = Number(
+            data && (data.total || data.totalCount || data.totalTutors)
+          ) || tutors.length;
+
+          const totalPages = Number(data && (data.totalPages || data.pages)) ||
+            Math.max(1, Math.ceil(total / pageLimit));
+
+          $("resultCount").textContent = "মোট " + total + " জন টিউটর";
+          renderPagination(totalPages);
+
+          results.querySelectorAll("[data-tutor-index]").forEach(function (button) {
+            button.addEventListener("click", function () {
+              const index = Number(button.dataset.tutorIndex);
+              const tutor = lastTutorList[index];
+              if (tutor) showTutorDetails(tutor);
+            });
+          });
+
+        } catch (error) {
+          results.innerHTML = `<div class="error-state">${escapeHTML(error.message || "তথ্য লোড করা যায়নি।")}</div>`;
+          $("resultCount").textContent = "তথ্য পাওয়া যায়নি";
+        }
+      }
+
+      function showTutorDetails(tutor) {
+        const name = pick(tutor, ["TutorName", "tutorName", "name"]) || "নাম উল্লেখ নেই";
+        const university = pick(tutor, ["University", "university"]);
+        const department = pick(tutor, ["Department", "department"]);
+        const year = pick(tutor, ["AcademicYear", "academicYear"]);
+        const district = pick(tutor, ["District", "district"]);
+        const division = pick(tutor, ["Division", "division"]);
+        const address = pick(tutor, ["CurrentAddress", "currentAddress"]);
+        const subjects = pick(tutor, ["TeachingSubjects", "teachingSubjects", "subjects"]);
+        const locations = pick(tutor, ["TeachingLocations", "teachingLocations"]);
+        const hours = pick(tutor, ["MaximumHours", "maximumHours"]);
+        const experience = pick(tutor, ["Experience", "experience"]);
+        const salary = pick(tutor, ["ExpectedSalary", "expectedSalary", "salary"]);
+        const mobile = pick(tutor, ["Mobile", "mobile", "Phone", "phone"]);
+        const email = pick(tutor, ["Email", "email"]);
+
+        function listValue(value) {
+          return Array.isArray(value) ? value.join(", ") : safeText(value);
+        }
+
+        const fields = [
+          ["বিশ্ববিদ্যালয়", university],
+          ["ডিপার্টমেন্ট", department],
+          ["অধ্যয়ন বর্ষ", year],
+          ["বিভাগ", division],
+          ["জেলা", district],
+          ["বর্তমান ঠিকানা", address],
+          ["পড়ানোর বিষয়", listValue(subjects)],
+          ["পড়ানোর এলাকা", listValue(locations)],
+          ["সর্বোচ্চ সময়", hours ? hours + " ঘণ্টা/দিন" : ""],
+          ["অভিজ্ঞতা", experience !== "" ? experience + " বছর" : ""],
+          ["প্রত্যাশিত বেতন", salary !== "" ? "৳" + money(salary) + " / মাস" : ""],
+          ["মোবাইল", mobile],
+          ["ইমেইল", email]
+        ];
+
+        $("modalBody").innerHTML = `
+          <h3 id="modalTitle">${escapeHTML(name)}</h3>
+          <div class="detail-list">
+            ${fields.filter(item => item[1] !== "").map(item =>
+              `<div><strong>${escapeHTML(item[0])}:</strong> ${escapeHTML(item[1])}</div>`
+            ).join("")}
+          </div>
+        `;
+
+        $("tutorModal").classList.add("show");
+      }
+
+      $("modalClose").addEventListener("click", function () {
+        $("tutorModal").classList.remove("show");
+      });
+
+      $("tutorModal").addEventListener("click", function (event) {
+        if (event.target === $("tutorModal")) {
+          $("tutorModal").classList.remove("show");
+        }
+      });
+
+      // Search filters
+      $("searchForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        currentPage = 1;
+        currentFilters = {
+          name: $("filterName").value.trim(),
+          university: $("filterUniversity").value.trim(),
+          division: $("filterDivision").value,
+          district: $("filterDistrict").value.trim(),
+          subject: $("filterSubject").value.trim(),
+          department: $("filterDepartment").value.trim(),
+          academicYear: $("filterAcademicYear").value,
+          location: $("filterLocation").value.trim(),
+          minSalary: $("filterMinSalary").value,
+          maxSalary: $("filterMaxSalary").value,
+          experience: $("filterExperience").value,
+          sort: $("filterSort").value
+        };
+
+        loadTutors();
+      });
+
+      $("searchForm").addEventListener("reset", function () {
+        setTimeout(function () {
+          currentPage = 1;
+          currentFilters = {};
+          loadTutors();
+        }, 0);
+      });
+
+      // Registration form
+      $("tutorForm").addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const submitButton = $("submitBtn");
+        submitButton.disabled = true;
+        submitButton.textContent = "জমা হচ্ছে...";
+        $("formMessage").className = "form-message";
+        $("formMessage").textContent = "";
+
+        const selectedSubjects = Array.from(
+          document.querySelectorAll('input[name="subjects"]:checked')
+        ).map(input => input.value);
+
+        const selectedClassLevels = Array.from(
+          document.querySelectorAll('input[name="classLevels"]:checked')
+        ).map(input => input.value);
+
+        if (!selectedSubjects.length) {
+          showMessage("অন্তত একটি পড়ানোর বিষয় নির্বাচন করুন।", "error");
+          submitButton.disabled = false;
+          submitButton.textContent = "রেজিস্ট্রেশন Submit করুন →";
+          return;
+        }
+
+        const payload = {
+          tutorName: $("tutorName").value.trim(),
+          mobile: $("mobile").value.trim(),
+          email: $("email").value.trim(),
+          profilePhoto: $("profilePhoto").value.trim(),
+          division: $("division").value,
+          district: $("district").value.trim(),
+          currentAddress: $("currentAddress").value.trim(),
+          university: $("university").value.trim(),
+          department: $("department").value.trim(),
+          academicYear: $("academicYear").value,
+          teachingSubjects: selectedSubjects,
+          teachingLocations: $("teachingLocations").value
+            .split(",").map(value => value.trim()).filter(Boolean),
+          expectedSalary: $("expectedSalary").value,
+          experience: $("experience").value || "0",
+          maximumHours: $("maximumHours").value,
+          classLevels: selectedClassLevels,
+          website: $("website").value.trim()
+        };
+
+        try {
+          const api = await waitForAPI();
+          const response = await api.submitTutor(payload);
+          const data = unwrap(response);
+
+          if (response && response.success === false) {
+            throw new Error(response.message || "রেজিস্ট্রেশন সম্পন্ন হয়নি।");
+          }
+
+          if (data && data.success === false) {
+            throw new Error(data.message || "রেজিস্ট্রেশন সম্পন্ন হয়নি।");
+          }
+
+          showMessage(
+            (data && data.message) ||
+            (response && response.message) ||
+            "আপনার রেজিস্ট্রেশন অনুরোধ জমা হয়েছে।",
+            "success"
+          );
+
+          $("tutorForm").reset();
+
+          // Refresh tutor list after successful submission
+          setTimeout(function () {
+            loadTutors();
+            loadStatistics();
+          }, 1500);
+
+        } catch (error) {
+          showMessage(
+            error.message || "দুঃখিত, রেজিস্ট্রেশন করা যায়নি। আবার চেষ্টা করুন।",
+            "error"
+          );
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = "রেজিস্ট্রেশন Submit করুন →";
+        }
+      });
+
+      // Dashboard statistics
+      async function loadStatistics() {
+        try {
+          const api = await waitForAPI();
+          const response = await api.getTutorStatistics();
+          const data = unwrap(response) || {};
+
+          $("totalTutors").textContent =
+            pick(data, ["totalTutors", "TotalTutors", "total"]) || "0";
+
+          $("totalUniversities").textContent =
+            pick(data, ["totalUniversities", "TotalUniversities", "universities"]) || "0";
+
+          $("totalDistricts").textContent =
+            pick(data, ["totalDistricts", "TotalDistricts", "districts"]) || "0";
+
+        } catch (error) {
+          $("totalTutors").textContent = "—";
+          $("totalUniversities").textContent = "—";
+          $("totalDistricts").textContent = "—";
+        }
+      }
+
+      // Initial load
+      loadTutors();
+      loadStatistics();
+    });
+  </script>
+
+</body>
+</html>
