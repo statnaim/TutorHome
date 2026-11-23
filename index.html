@@ -724,6 +724,201 @@
     .detail-list { display: grid; gap: 10px; color: #52645f; }
     .detail-list strong { color: var(--ink); }
 
+/* =================================
+   MODERN TUTOR PROFILE DESIGN
+================================= */
+
+.modal-content {
+  width: min(760px, 100%);
+}
+
+.profile-download-card {
+  background: #ffffff;
+  border: 1px solid #e1eee9;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 35px rgba(20, 65, 56, .09);
+  color: #18332f;
+}
+
+.profile-banner {
+  background: linear-gradient(135deg, #075e54, #087f70, #19a58d);
+  padding: 30px 25px 55px;
+  color: white;
+  position: relative;
+}
+
+.profile-banner::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.08);
+  right: -45px;
+  top: -75px;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+.profile-avatar {
+  width: 90px;
+  height: 90px;
+  min-width: 90px;
+  border-radius: 22px;
+  object-fit: cover;
+  border: 4px solid rgba(255,255,255,.85);
+  background: #e5f5ef;
+}
+
+.profile-avatar-placeholder {
+  display: grid;
+  place-items: center;
+  font-size: 38px;
+  font-weight: 700;
+  color: #087f70;
+}
+
+.profile-name {
+  font-size: 27px;
+  font-weight: 700;
+  margin: 0 0 4px;
+  color: white;
+  overflow-wrap: anywhere;
+}
+
+.profile-university {
+  font-size: 15px;
+  color: #e2f5ef;
+  margin: 0;
+}
+
+.profile-label-top {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 5px 12px;
+  border-radius: 30px;
+  background: rgba(255,255,255,.17);
+  color: white;
+  font-size: 12px;
+}
+
+.profile-content {
+  padding: 25px;
+  margin-top: -27px;
+  position: relative;
+}
+
+.profile-section-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #075e54;
+  margin: 0 0 15px;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.profile-item {
+  padding: 13px;
+  border: 1px solid #e5eeea;
+  border-radius: 12px;
+  background: #f8fbfa;
+  min-width: 0;
+}
+
+.profile-item.wide {
+  grid-column: 1 / -1;
+}
+
+.profile-item-label {
+  display: block;
+  color: #71817d;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.profile-item-value {
+  display: block;
+  color: #18332f;
+  font-size: 15px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.profile-salary {
+  margin-top: 18px;
+  padding: 17px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #e6f7ef, #f1fbf6);
+  border: 1px solid #ccebdd;
+  text-align: center;
+}
+
+.profile-salary-label {
+  color: #58756a;
+  font-size: 13px;
+}
+
+.profile-salary-value {
+  display: block;
+  font-size: 25px;
+  font-weight: 700;
+  color: #087f70;
+}
+
+.profile-footer {
+  padding: 14px 20px;
+  background: #f3f8f5;
+  border-top: 1px solid #e5eeea;
+  text-align: center;
+  color: #71817d;
+  font-size: 12px;
+}
+
+@media (max-width: 500px) {
+  .profile-banner {
+    padding: 24px 17px 48px;
+  }
+
+  .profile-header {
+    gap: 12px;
+  }
+
+  .profile-avatar {
+    width: 70px;
+    height: 70px;
+    min-width: 70px;
+    border-radius: 17px;
+  }
+
+  .profile-name {
+    font-size: 21px;
+  }
+
+  .profile-content {
+    padding: 17px;
+  }
+
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-item.wide {
+    grid-column: auto;
+  }
+}
+
     .mobile-nav {
       display: none;
       padding: 12px 18px 18px;
@@ -1458,37 +1653,138 @@
         const mobile = pick(tutor, ["Mobile", "mobile", "Phone", "phone"]);
         const email = pick(tutor, ["Email", "email"]);
 
-        function listValue(value) {
-          return Array.isArray(value) ? value.join(", ") : safeText(value);
+        
+function showTutorDetails(tutor) {
+
+  const name = pick(tutor, ["TutorName", "tutorName", "name"]) || "নাম উল্লেখ নেই";
+  const university = pick(tutor, ["University", "university"]);
+  const department = pick(tutor, ["Department", "department"]);
+  const year = pick(tutor, ["AcademicYear", "academicYear"]);
+  const district = pick(tutor, ["District", "district"]);
+  const division = pick(tutor, ["Division", "division"]);
+  const address = pick(tutor, ["CurrentAddress", "currentAddress"]);
+  const subjects = pick(tutor, ["TeachingSubjects", "teachingSubjects", "subjects"]);
+  const locations = pick(tutor, ["TeachingLocations", "teachingLocations"]);
+  const hours = pick(tutor, ["MaximumHours", "maximumHours"]);
+  const experience = pick(tutor, ["Experience", "experience"]);
+  const salary = pick(tutor, ["ExpectedSalary", "expectedSalary", "salary"]);
+  const mobile = pick(tutor, ["Mobile", "mobile", "Phone", "phone"]);
+  const email = pick(tutor, ["Email", "email"]);
+  const photoRaw = pick(tutor, ["ProfilePhoto", "profilePhoto", "photo"]);
+  const classLevels = pick(tutor, ["ClassLevels", "classLevels"]);
+  const website = pick(tutor, ["Website", "website"]);
+
+  function listValue(value) {
+    return Array.isArray(value) ? value.join(", ") : safeText(value);
+  }
+
+  // Only allow normal HTTP/HTTPS profile image links
+  const photo = /^https?:\/\//i.test(safeText(photoRaw).trim())
+    ? safeText(photoRaw).trim()
+    : "";
+
+  const avatar = photo
+    ? `<img class="profile-avatar" src="${escapeHTML(photo)}"
+         alt="${escapeHTML(name)}"
+         crossorigin="anonymous"
+         onerror="this.style.display='none'">`
+    : `<div class="profile-avatar profile-avatar-placeholder">
+         ${escapeHTML(name.charAt(0))}
+       </div>`;
+
+  const fields = [
+    ["বিশ্ববিদ্যালয়", university],
+    ["ডিপার্টমেন্ট", department],
+    ["অধ্যয়ন বর্ষ", year],
+    ["বিভাগ", division],
+    ["জেলা", district],
+    ["বর্তমান ঠিকানা", address],
+    ["পড়ানোর বিষয়", listValue(subjects)],
+    ["পড়ানোর এলাকা", listValue(locations)],
+    ["যেসব শ্রেণি পড়াতে পারবেন", listValue(classLevels)],
+    ["সর্বোচ্চ পড়ানোর সময়", hours ? hours + " ঘণ্টা/দিন" : ""],
+    ["অভিজ্ঞতা", experience !== "" ? experience + " বছর" : ""],
+    ["মোবাইল নম্বর", mobile],
+    ["ইমেইল", email],
+    ["প্রোফাইল লিংক", website]
+  ];
+
+  const fieldHTML = fields
+    .filter(item => item[1] !== "")
+    .map(item => `
+      <div class="profile-item">
+        <span class="profile-item-label">
+          ${escapeHTML(item[0])}
+        </span>
+        <span class="profile-item-value">
+          ${escapeHTML(item[1])}
+        </span>
+      </div>
+    `).join("");
+
+  $("modalBody").innerHTML = `
+    <div class="profile-download-card">
+
+      <div class="profile-banner">
+        <div class="profile-header">
+
+          ${avatar}
+
+          <div>
+            <h2 class="profile-name" id="modalTitle">
+              ${escapeHTML(name)}
+            </h2>
+
+            <p class="profile-university">
+              ${escapeHTML(university || "বিশ্ববিদ্যালয় উল্লেখ নেই")}
+            </p>
+
+            <span class="profile-label-top">
+              ShikkhaSetu Tutor Profile
+            </span>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="profile-content">
+
+        <h3 class="profile-section-title">
+          টিউটরের বিস্তারিত তথ্য
+        </h3>
+
+        <div class="profile-grid">
+          ${fieldHTML}
+        </div>
+
+        ${
+          salary !== ""
+            ? `
+              <div class="profile-salary">
+                <span class="profile-salary-label">
+                  প্রত্যাশিত মাসিক বেতন
+                </span>
+
+                <span class="profile-salary-value">
+                  ৳${money(salary)} / মাস
+                </span>
+              </div>
+            `
+            : ""
         }
 
-        const fields = [
-          ["বিশ্ববিদ্যালয়", university],
-          ["ডিপার্টমেন্ট", department],
-          ["অধ্যয়ন বর্ষ", year],
-          ["বিভাগ", division],
-          ["জেলা", district],
-          ["বর্তমান ঠিকানা", address],
-          ["পড়ানোর বিষয়", listValue(subjects)],
-          ["পড়ানোর এলাকা", listValue(locations)],
-          ["সর্বোচ্চ সময়", hours ? hours + " ঘণ্টা/দিন" : ""],
-          ["অভিজ্ঞতা", experience !== "" ? experience + " বছর" : ""],
-          ["প্রত্যাশিত বেতন", salary !== "" ? "৳" + money(salary) + " / মাস" : ""],
-          ["মোবাইল", mobile],
-          ["ইমেইল", email]
-        ];
+      </div>
 
-        $("modalBody").innerHTML = `
-          <h3 id="modalTitle">${escapeHTML(name)}</h3>
-          <div class="detail-list">
-            ${fields.filter(item => item[1] !== "").map(item =>
-              `<div><strong>${escapeHTML(item[0])}:</strong> ${escapeHTML(item[1])}</div>`
-            ).join("")}
-          </div>
-        `;
+      <div class="profile-footer">
+        ShikkhaSetu | শিক্ষার নতুন সংযোগ
+      </div>
 
-        $("tutorModal").classList.add("show");
-      }
+    </div>
+  `;
+
+  $("tutorModal").classList.add("show");
+}
+
       // =================================
 // DOWNLOAD TUTOR PROFILE
 // =================================
@@ -1505,6 +1801,9 @@ async function captureTutorProfile() {
     throw new Error("Image Download Library লোড হয়নি।");
   }
 await document.fonts.ready;
+  if (document.fonts && document.fonts.ready) {
+  await document.fonts.ready;
+}
   const canvas = await html2canvas(profile, {
     scale: 2,
     backgroundColor: "#ffffff",
@@ -1803,3 +2102,4 @@ loadStatistics();
   </script>
 </body>
 </html>
+
