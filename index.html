@@ -1071,13 +1071,27 @@
       <div id="modalBody">
         <h3 id="modalTitle">টিউটরের বিস্তারিত</h3>
       </div>
+      <div class="filter-actions" style="margin-top:20px;">
+
+  <button class="btn btn-primary" type="button" id="downloadImageBtn">
+    🖼️ Download Image
+  </button>
+
+  <button class="btn btn-outline" type="button" id="downloadPdfBtn">
+    📄 Download PDF
+  </button>
+
+</div>
     </div>
   </div>
+  
 
   <!-- IMPORTANT: config.js must load before api.js -->
   <script src="config.js"></script>
   <script src="api.js" defer></script>
-
+<!-- Image and PDF Download Libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       "use strict";
@@ -1368,6 +1382,126 @@
 
         $("tutorModal").classList.add("show");
       }
+      // =================================
+// DOWNLOAD TUTOR PROFILE
+// =================================
+
+async function captureTutorProfile() {
+
+  const profile = $("modalBody");
+
+  if (!profile || !profile.innerText.trim()) {
+    throw new Error("Tutor Profile পাওয়া যায়নি।");
+  }
+
+  if (typeof html2canvas === "undefined") {
+    throw new Error("Image Download Library লোড হয়নি।");
+  }
+
+  const canvas = await html2canvas(profile, {
+    scale: 2,
+    backgroundColor: "#ffffff",
+    useCORS: true,
+    logging: false
+  });
+
+  return canvas;
+}
+
+
+// Download as PNG Image
+$("downloadImageBtn").addEventListener("click", async function () {
+
+  const button = this;
+
+  try {
+
+    button.disabled = true;
+    button.textContent = "ছবি তৈরি হচ্ছে...";
+
+    const canvas = await captureTutorProfile();
+
+    const link = document.createElement("a");
+
+    const name = $("modalTitle").textContent
+      .trim()
+      .replace(/[^a-zA-Z0-9\u0980-\u09FF_-]/g, "_");
+
+    link.download = "ShikkhaSetu_" + name + ".png";
+    link.href = canvas.toDataURL("image/png");
+
+    link.click();
+
+  } catch (error) {
+
+    alert(error.message || "Image Download করা যায়নি।");
+
+  } finally {
+
+    button.disabled = false;
+    button.textContent = "🖼️ Download Image";
+
+  }
+
+});
+
+
+// Download as PDF
+$("downloadPdfBtn").addEventListener("click", async function () {
+
+  const button = this;
+
+  try {
+
+    button.disabled = true;
+    button.textContent = "PDF তৈরি হচ্ছে...";
+
+    const canvas = await captureTutorProfile();
+
+    if (!window.jspdf || !window.jspdf.jsPDF) {
+      throw new Error("PDF Library লোড হয়নি।");
+    }
+
+    const { jsPDF } = window.jspdf;
+
+    const imageData = canvas.toDataURL("image/png");
+
+    const pdfWidth = 190;
+    const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+
+    const pdf = new jsPDF({
+      orientation: "portrait",
+      unit: "mm",
+      format: [210, Math.max(297, pdfHeight + 20)]
+    });
+
+    pdf.addImage(
+      imageData,
+      "PNG",
+      10,
+      10,
+      pdfWidth,
+      pdfHeight
+    );
+
+    const name = $("modalTitle").textContent
+      .trim()
+      .replace(/[^a-zA-Z0-9\u0980-\u09FF_-]/g, "_");
+
+    pdf.save("ShikkhaSetu_" + name + ".pdf");
+
+  } catch (error) {
+
+    alert(error.message || "PDF Download করা যায়নি।");
+
+  } finally {
+
+    button.disabled = false;
+    button.textContent = "📄 Download PDF";
+
+  }
+
+});
 
       $("modalClose").addEventListener("click", function () {
         $("tutorModal").classList.remove("show");
