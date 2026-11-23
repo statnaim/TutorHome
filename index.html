@@ -1676,12 +1676,53 @@ $("downloadPdfBtn").addEventListener("click", async function () {
             throw new Error(data.message || "রেজিস্ট্রেশন সম্পন্ন হয়নি।");
           }
 
-          showMessage(
-            (data && data.message) ||
-            (response && response.message) ||
-            "আপনার রেজিস্ট্রেশন অনুরোধ জমা হয়েছে।",
-            "success"
-          );
+          
+const successBox = $("formMessage");
+
+successBox.className = "form-message success";
+
+successBox.innerHTML = `
+  <div class="success-card">
+
+    <div class="verified-badge">
+      <span>✔</span> Registration Submitted
+      <span>✓</span>
+    </div>
+
+    <div class="verified-icon">✓</div>
+
+    <h2>অভিনন্দন! আপনার রেজিস্ট্রেশন সফল হয়েছে।</h2>
+
+    <p>
+      ShikkhaSetu-তে আপনার সঙ্গে যুক্ত হতে পেরে
+      আমরা আনন্দিত।
+    </p>
+
+    <div class="success-contact">
+      🤝 আপনার সঙ্গে যোগাযোগ করা হবে!
+    </div>
+
+    <p>
+      আগ্রহী অভিভাবক আপনার প্রোফাইল দেখে
+      আপনার সঙ্গে যোগাযোগ করতে পারবেন।
+    </p>
+
+    <p>
+      অনুগ্রহ করে আপনার মোবাইল ফোনটি সচল রাখুন।
+    </p>
+
+    <p class="success-thanks">
+      ধন্যবাদ, ShikkhaSetu-এর সঙ্গে থাকার জন্য। ❤️
+    </p>
+
+    <button type="button" class="success-close"
+      onclick="document.getElementById('formMessage').className='form-message'; document.getElementById('formMessage').innerHTML='';">
+      ধন্যবাদ ❤️
+    </button>
+
+  </div>
+`;
+
 
           $("tutorForm").reset();
 
