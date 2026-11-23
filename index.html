@@ -1397,7 +1397,7 @@ async function captureTutorProfile() {
   if (typeof html2canvas === "undefined") {
     throw new Error("Image Download Library লোড হয়নি।");
   }
-
+await document.fonts.ready;
   const canvas = await html2canvas(profile, {
     scale: 2,
     backgroundColor: "#ffffff",
