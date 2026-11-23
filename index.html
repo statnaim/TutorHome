@@ -1796,43 +1796,45 @@ async function captureTutorProfile() {
 
   return canvas;
 }
-
-
-// =================================
-// DOWNLOAD AS IMAGE (PNG)
-// =================================
-
-$("downloadImageBtn").addEventListener("click", async function () {
-
+      $("downloadPdfBtn").addEventListener("click", async function () {
   const button = this;
 
   try {
-
     button.disabled = true;
-    button.textContent = "Image তৈরি হচ্ছে...";
+    button.textContent = "PDF তৈরি হচ্ছে...";
 
     const canvas = await captureTutorProfile();
+
+    if (!window.jspdf || !window.jspdf.jsPDF) {
+      throw new Error("PDF Library লোড হয়নি।");
+    }
+
+    const { jsPDF } = window.jspdf;
+    const imageData = canvas.toDataURL("image/png");
+
+    const pdfWidth = 190;
+    const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+
+    const pdf = new jsPDF({
+      orientation: "portrait",
+      unit: "mm",
+      format: [210, Math.max(297, pdfHeight + 20)]
+    });
+
+    pdf.addImage(imageData, "PNG", 10, 10, pdfWidth, pdfHeight);
 
     const name = ($("modalTitle")?.textContent || "Tutor")
       .trim()
       .replace(/[^a-zA-Z0-9\u0980-\u09FF_-]/g, "_");
 
-    const link = document.createElement("a");
-    link.download = "ShikkhaSetu_" + name + ".png";
-    link.href = canvas.toDataURL("image/png");
-    link.click();
+    pdf.save("ShikkhaSetu_" + name + ".pdf");
 
   } catch (error) {
-
-    alert(error.message || "Image Download করা যায়নি।");
-
+    alert(error.message || "PDF Download করা যায়নি।");
   } finally {
-
     button.disabled = false;
-    button.textContent = "🖼️ Download Image";
-
+    button.textContent = "📄 Download PDF";
   }
-
 });
 
 
@@ -2124,5 +2126,6 @@ loadStatistics();
   </script>
 </body>
 </html>
+
 
 
