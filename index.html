@@ -1637,23 +1637,7 @@
         }
       }
 
-      function showTutorDetails(tutor) {
-        const name = pick(tutor, ["TutorName", "tutorName", "name"]) || "নাম উল্লেখ নেই";
-        const university = pick(tutor, ["University", "university"]);
-        const department = pick(tutor, ["Department", "department"]);
-        const year = pick(tutor, ["AcademicYear", "academicYear"]);
-        const district = pick(tutor, ["District", "district"]);
-        const division = pick(tutor, ["Division", "division"]);
-        const address = pick(tutor, ["CurrentAddress", "currentAddress"]);
-        const subjects = pick(tutor, ["TeachingSubjects", "teachingSubjects", "subjects"]);
-        const locations = pick(tutor, ["TeachingLocations", "teachingLocations"]);
-        const hours = pick(tutor, ["MaximumHours", "maximumHours"]);
-        const experience = pick(tutor, ["Experience", "experience"]);
-        const salary = pick(tutor, ["ExpectedSalary", "expectedSalary", "salary"]);
-        const mobile = pick(tutor, ["Mobile", "mobile", "Phone", "phone"]);
-        const email = pick(tutor, ["Email", "email"]);
 
-        
 function showTutorDetails(tutor) {
 
   const name = pick(tutor, ["TutorName", "tutorName", "name"]) || "নাম উল্লেখ নেই";
@@ -1678,7 +1662,6 @@ function showTutorDetails(tutor) {
     return Array.isArray(value) ? value.join(", ") : safeText(value);
   }
 
-  // Only allow normal HTTP/HTTPS profile image links
   const photo = /^https?:\/\//i.test(safeText(photoRaw).trim())
     ? safeText(photoRaw).trim()
     : "";
@@ -1703,14 +1686,14 @@ function showTutorDetails(tutor) {
     ["পড়ানোর এলাকা", listValue(locations)],
     ["যেসব শ্রেণি পড়াতে পারবেন", listValue(classLevels)],
     ["সর্বোচ্চ পড়ানোর সময়", hours ? hours + " ঘণ্টা/দিন" : ""],
-    ["অভিজ্ঞতা", experience !== "" ? experience + " বছর" : ""],
+    ["অভিজ্ঞতা", experience !== "" && experience != null ? experience + " বছর" : ""],
     ["মোবাইল নম্বর", mobile],
     ["ইমেইল", email],
     ["প্রোফাইল লিংক", website]
   ];
 
   const fieldHTML = fields
-    .filter(item => item[1] !== "")
+    .filter(item => item[1] !== "" && item[1] != null)
     .map(item => `
       <div class="profile-item">
         <span class="profile-item-label">
@@ -1727,7 +1710,6 @@ function showTutorDetails(tutor) {
 
       <div class="profile-banner">
         <div class="profile-header">
-
           ${avatar}
 
           <div>
@@ -1743,7 +1725,6 @@ function showTutorDetails(tutor) {
               ShikkhaSetu Tutor Profile
             </span>
           </div>
-
         </div>
       </div>
 
@@ -1758,7 +1739,7 @@ function showTutorDetails(tutor) {
         </div>
 
         ${
-          salary !== ""
+          salary !== "" && salary != null
             ? `
               <div class="profile-salary">
                 <span class="profile-salary-label">
@@ -1785,7 +1766,8 @@ function showTutorDetails(tutor) {
   $("tutorModal").classList.add("show");
 }
 
-      // =================================
+
+// =================================
 // DOWNLOAD TUTOR PROFILE
 // =================================
 
@@ -1800,10 +1782,11 @@ async function captureTutorProfile() {
   if (typeof html2canvas === "undefined") {
     throw new Error("Image Download Library লোড হয়নি।");
   }
-await document.fonts.ready;
+
   if (document.fonts && document.fonts.ready) {
-  await document.fonts.ready;
-}
+    await document.fonts.ready;
+  }
+
   const canvas = await html2canvas(profile, {
     scale: 2,
     backgroundColor: "#ffffff",
@@ -1815,10 +1798,48 @@ await document.fonts.ready;
 }
 
 
+// =================================
+// DOWNLOAD AS IMAGE (PNG)
+// =================================
+
+$("downloadImageBtn").addEventListener("click", async function () {
+
+  const button = this;
+
+  try {
+
+    button.disabled = true;
+    button.textContent = "Image তৈরি হচ্ছে...";
+
+    const canvas = await captureTutorProfile();
+
+    const name = ($("modalTitle")?.textContent || "Tutor")
+      .trim()
+      .replace(/[^a-zA-Z0-9\u0980-\u09FF_-]/g, "_");
+
+    const link = document.createElement("a");
+    link.download = "ShikkhaSetu_" + name + ".png";
+    link.href = canvas.toDataURL("image/png");
+    link.click();
+
+  } catch (error) {
+
+    alert(error.message || "Image Download করা যায়নি।");
+
+  } finally {
+
+    button.disabled = false;
+    button.textContent = "🖼️ Download Image";
+
+  }
+
+});
 
 
+// =================================
+// DOWNLOAD AS PDF
+// =================================
 
-// Download as PDF
 $("downloadPdfBtn").addEventListener("click", async function () {
 
   const button = this;
@@ -1856,7 +1877,7 @@ $("downloadPdfBtn").addEventListener("click", async function () {
       pdfHeight
     );
 
-    const name = $("modalTitle").textContent
+    const name = ($("modalTitle")?.textContent || "Tutor")
       .trim()
       .replace(/[^a-zA-Z0-9\u0980-\u09FF_-]/g, "_");
 
@@ -1874,6 +1895,7 @@ $("downloadPdfBtn").addEventListener("click", async function () {
   }
 
 });
+
 
       $("modalClose").addEventListener("click", function () {
         $("tutorModal").classList.remove("show");
@@ -2102,4 +2124,5 @@ loadStatistics();
   </script>
 </body>
 </html>
+
 
