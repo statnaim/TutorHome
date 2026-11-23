@@ -1587,35 +1587,62 @@ $("downloadPdfBtn").addEventListener("click", async function () {
       });
 
       // Search filters
-      $("searchForm").addEventListener("submit", function (event) {
-        event.preventDefault();
+$("searchForm").addEventListener("submit", function (event) {
+  event.preventDefault();
 
-        currentPage = 1;
-        currentFilters = {
-          name: $("filterName").value.trim(),
-          university: $("filterUniversity").value.trim(),
-          division: $("filterDivision").value,
-          district: $("filterDistrict").value.trim(),
-          subject: $("filterSubject").value.trim(),
-          department: $("filterDepartment").value.trim(),
-          academicYear: $("filterAcademicYear").value,
-          location: $("filterLocation").value.trim(),
-          minSalary: $("filterMinSalary").value,
-          maxSalary: $("filterMaxSalary").value,
-          experience: $("filterExperience").value,
-          sort: $("filterSort").value
-        };
+  currentPage = 1;
+  currentFilters = {
+    name: $("filterName").value.trim(),
+    university: $("filterUniversity").value.trim(),
+    division: $("filterDivision").value,
+    district: $("filterDistrict").value.trim(),
+    subject: $("filterSubject").value.trim(),
+    department: $("filterDepartment").value.trim(),
+    academicYear: $("filterAcademicYear").value,
+    location: $("filterLocation").value.trim(),
+    minSalary: $("filterMinSalary").value,
+    maxSalary: $("filterMaxSalary").value,
+    experience: $("filterExperience").value,
+    sort: $("filterSort").value
+  };
 
-        loadTutors();
-      });
+  const hasSearch =
+    currentFilters.name ||
+    currentFilters.university ||
+    currentFilters.division ||
+    currentFilters.district ||
+    currentFilters.subject ||
+    currentFilters.department ||
+    currentFilters.academicYear ||
+    currentFilters.location ||
+    currentFilters.minSalary ||
+    currentFilters.maxSalary ||
+    currentFilters.experience;
+
+  if (!hasSearch) {
+    $("tutorResults").innerHTML =
+      `<div class="empty-state">অন্তত একটি তথ্য দিয়ে Search করুন।</div>`;
+
+    $("resultCount").textContent = "Search প্রয়োজন";
+    $("pagination").innerHTML = "";
+    return;
+  }
+
+  loadTutors();
+});
 
       $("searchForm").addEventListener("reset", function () {
-        setTimeout(function () {
-          currentPage = 1;
-          currentFilters = {};
-          loadTutors();
-        }, 0);
-      });
+  setTimeout(function () {
+    currentPage = 1;
+    currentFilters = {};
+
+    $("tutorResults").innerHTML =
+      `<div class="empty-state">টিউটর খুঁজতে Search অপশন ব্যবহার করুন।</div>`;
+
+    $("resultCount").textContent = "Search করে টিউটর খুঁজুন";
+    $("pagination").innerHTML = "";
+  }, 0);
+});
 
       // Registration form
       $("tutorForm").addEventListener("submit", async function (event) {
@@ -1726,12 +1753,10 @@ successBox.innerHTML = `
 
           $("tutorForm").reset();
 
-          // Refresh tutor list after successful submission
-          setTimeout(function () {
-            loadTutors();
-            loadStatistics();
-          }, 1500);
-
+         // Refresh statistics only after successful submission
+setTimeout(function () {
+  loadStatistics();
+}, 1500);
         } catch (error) {
           showMessage(
             error.message || "দুঃখিত, রেজিস্ট্রেশন করা যায়নি। আবার চেষ্টা করুন।",
@@ -1766,9 +1791,14 @@ successBox.innerHTML = `
         }
       }
 
-      // Initial load
-      loadTutors();
-      loadStatistics();
+     // Initial load
+$("tutorResults").innerHTML =
+  `<div class="empty-state">টিউটর খুঁজতে Search অপশন ব্যবহার করুন।</div>`;
+
+$("resultCount").textContent = "Search করে টিউটর খুঁজুন";
+$("pagination").innerHTML = "";
+
+loadStatistics();
     });
   </script>
 </body>
