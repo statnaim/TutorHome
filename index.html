@@ -1407,41 +1407,7 @@ await document.fonts.ready;
 }
 
 
-// Download as PNG Image
-$("downloadImageBtn").addEventListener("click", async function () {
 
-  const button = this;
-
-  try {
-
-    button.disabled = true;
-    button.textContent = "ছবি তৈরি হচ্ছে...";
-
-    const canvas = await captureTutorProfile();
-
-    const link = document.createElement("a");
-
-    const name = $("modalTitle").textContent
-      .trim()
-      .replace(/[^a-zA-Z0-9\u0980-\u09FF_-]/g, "_");
-
-    link.download = "ShikkhaSetu_" + name + ".png";
-    link.href = canvas.toDataURL("image/png");
-
-    link.click();
-
-  } catch (error) {
-
-    alert(error.message || "Image Download করা যায়নি।");
-
-  } finally {
-
-    button.disabled = false;
-    button.textContent = "🖼️ Download Image";
-
-  }
-
-});
 
 
 // Download as PDF
