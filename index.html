@@ -534,13 +534,122 @@
       border-radius: 10px;
       margin: 15px 0;
       font-weight: 600;
-    }
+    
+.form-message.success {
+  display: flex;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  margin: 0;
+  background: linear-gradient(135deg, #e0f7ef, #e8f0ff, #fff2df);
+  font-weight: 500;
+  animation: successFade .4s ease;
+}
 
-    .form-message.success {
-      display: block;
-      color: #176b4e;
-      background: #e8f7ee;
-    }
+.success-card {
+  width: min(520px, 100%);
+  padding: 35px 25px;
+  text-align: center;
+  background: #ffffff;
+  border-radius: 25px;
+  border: 1px solid #d9eee5;
+  box-shadow: 0 20px 60px rgba(8, 80, 65, .18);
+}
+
+.verified-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 17px;
+  margin-bottom: 20px;
+  border-radius: 30px;
+  color: #087f70;
+  background: #e2f8ee;
+  border: 1px solid #a9e6cb;
+  font-weight: 700;
+}
+
+.verified-icon {
+  width: 75px;
+  height: 75px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  color: white;
+  background: linear-gradient(135deg, #08a878, #087f70);
+  font-size: 40px;
+  box-shadow: 0 8px 22px rgba(8, 127, 112, .25);
+}
+
+.success-card h2 {
+  color: #087f70;
+  font-size: 27px;
+  margin: 0 0 13px;
+  line-height: 1.4;
+}
+
+.success-card p {
+  color: #60716b;
+  font-size: 16px;
+  line-height: 1.8;
+  margin: 10px 0;
+}
+
+.success-contact {
+  margin: 20px 0;
+  padding: 16px;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #e8f8f0, #edf4ff);
+  color: #087f70;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.success-thanks {
+  color: #d18a22 !important;
+  font-weight: 700;
+  margin-top: 18px !important;
+}
+
+.success-close {
+  margin-top: 20px;
+  padding: 12px 30px;
+  border: 0;
+  border-radius: 12px;
+  color: white;
+  background: #087f70;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.success-close:hover {
+  background: #075e54;
+}
+
+@keyframes successFade {
+  from { opacity: 0; transform: scale(.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 480px) {
+  .success-card {
+    padding: 28px 18px;
+  }
+
+  .success-card h2 {
+    font-size: 23px;
+  }
+
+  .success-card p {
+    font-size: 15px;
+  }
+}
+
 
     .form-message.error {
       display: block;
