@@ -541,6 +541,42 @@
       color: #176b4e;
       background: #e8f7ee;
     }
+    /* Registration Success Confirmation */
+.form-message.success {
+  display: block;
+  position: relative;
+  padding: 22px 18px 20px;
+  margin: 20px 0;
+  border: 1px solid #a9dfc1;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #effcf4, #e3f8ec);
+  color: #176b4e;
+  text-align: center;
+  font-size: 17px;
+  line-height: 1.8;
+  box-shadow: 0 8px 22px rgba(23, 107, 78, 0.08);
+}
+
+.form-message.success::before {
+  content: "✓ Submission Successful";
+  display: table;
+  margin: 0 auto 12px;
+  padding: 6px 15px;
+  border-radius: 30px;
+  background: #d0f3df;
+  color: #176b4e;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.form-message.success::after {
+  content: "আমাদের টিম আপনার তথ্য পর্যালোচনা করবে।";
+  display: block;
+  margin-top: 7px;
+  color: #527568;
+  font-size: 14px;
+  font-weight: 500;
+}
 
     .form-message.error {
       display: block;
@@ -1154,11 +1190,19 @@
         return [];
       }
 
-      function showMessage(message, type) {
-        const box = $("formMessage");
-        box.textContent = message;
-        box.className = "form-message " + type;
-      }
+    function showMessage(message, type) {
+  const box = $("formMessage");
+
+  box.textContent = message;
+  box.className = "form-message " + type;
+
+  if (type === "success") {
+    box.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+  }
+}
 
       function safeText(value) {
         return String(value == null ? "" : value);
@@ -1652,11 +1696,9 @@
           }
 
           showMessage(
-            (data && data.message) ||
-            (response && response.message) ||
-            "আপনার রেজিস্ট্রেশন অনুরোধ জমা হয়েছে।",
-            "success"
-          );
+  "অভিনন্দন! আপনার রেজিস্ট্রেশন সফলভাবে জমা হয়েছে। ShikkhaSetu টিম আপনার তথ্য যাচাই করে প্রয়োজন অনুযায়ী যোগাযোগ করবে। এখন আগ্রহী Guardian আপনার দেওয়া Contact Number-এ সরাসরি কল করে যোগাযোগ করতে পারবেন। ধন্যবাদ ShikkhaSetu-এর সঙ্গে যুক্ত হওয়ার জন্য।",
+  "success"
+);
 
           $("tutorForm").reset();
 
