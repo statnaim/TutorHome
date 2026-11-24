@@ -951,6 +951,16 @@
                 <label for="mobile">মোবাইল নম্বর *</label>
                 <input id="mobile" name="mobile" type="tel" required maxlength="20" placeholder="01XXXXXXXXX">
               </div>
+              <div class="field field-full">
+  <label class="check-option">
+    <input
+      type="checkbox"
+      id="allowPublicContact"
+      name="allowPublicContact"
+    >
+    আমি সম্মতি দিচ্ছি যে Guardian-রা আমার Mobile Number দেখতে পারবেন এবং Call/WhatsApp-এ যোগাযোগ করতে পারবেন।
+  </label>
+</div>
 
               <div class="field">
                 <label for="email">ইমেইল</label>
@@ -1367,13 +1377,42 @@
           $("resultCount").textContent = "মোট " + total + " জন টিউটর";
           renderPagination(totalPages);
 
-          results.querySelectorAll("[data-tutor-index]").forEach(function (button) {
-            button.addEventListener("click", function () {
-              const index = Number(button.dataset.tutorIndex);
-              const tutor = lastTutorList[index];
-              if (tutor) showTutorDetails(tutor);
-            });
-          });
+         results.querySelectorAll("[data-tutor-index]").forEach(function (button) {
+
+  button.addEventListener("click", async function () {
+
+    const tutorID = button.dataset.tutorId;
+
+    if (!tutorID) {
+      alert("Tutor ID পাওয়া যায়নি।");
+      return;
+    }
+
+    try {
+
+      button.disabled = true;
+      button.textContent = "তথ্য লোড হচ্ছে...";
+
+      const api = await waitForAPI();
+
+      const tutor = await api.getTutorDetails(tutorID);
+
+      showTutorDetails(tutor);
+
+    } catch (error) {
+
+      alert(error.message || "Tutor-এর তথ্য পাওয়া যায়নি।");
+
+    } finally {
+
+      button.disabled = false;
+      button.textContent = "বিস্তারিত দেখুন";
+
+    }
+
+  });
+
+});
 
         } catch (error) {
           results.innerHTML = `<div class="error-state">${escapeHTML(error.message || "তথ্য লোড করা যায়নি।")}</div>`;
@@ -1395,7 +1434,7 @@
         const experience = pick(tutor, ["Experience", "experience"]);
         const salary = pick(tutor, ["ExpectedSalary", "expectedSalary", "salary"]);
         const mobile = pick(tutor, ["Mobile", "mobile", "Phone", "phone"]);
-        const email = pick(tutor, ["Email", "email"]);
+        
 
         function listValue(value) {
           return Array.isArray(value) ? value.join(", ") : safeText(value);
@@ -1413,18 +1452,54 @@
           ["সর্বোচ্চ সময়", hours ? hours + " ঘণ্টা/দিন" : ""],
           ["অভিজ্ঞতা", experience !== "" ? experience + " বছর" : ""],
           ["প্রত্যাশিত বেতন", salary !== "" ? "৳" + money(salary) + " / মাস" : ""],
-          ["মোবাইল", mobile],
-          ["ইমেইল", email]
+        
         ];
+const phoneDigits = safeText(mobile).replace(/\D/g, "");
 
-        $("modalBody").innerHTML = `
-          <h3 id="modalTitle">${escapeHTML(name)}</h3>
-          <div class="detail-list">
-            ${fields.filter(item => item[1] !== "").map(item =>
-              `<div><strong>${escapeHTML(item[0])}:</strong> ${escapeHTML(item[1])}</div>`
-            ).join("")}
-          </div>
-        `;
+const whatsappNumber = phoneDigits.startsWith("88")
+  ? phoneDigits
+  : phoneDigits.startsWith("0")
+    ? "88" + phoneDigits
+    : "";
+
+const contactActions = whatsappNumber
+  ? `
+    <div class="filter-actions" style="margin-top:20px;">
+
+      <a
+        class="btn btn-primary"
+        href="tel:+${whatsappNumber}"
+      >
+        📞 Call Now
+      </a>
+
+      <a
+        class="btn btn-outline"
+        href="https://wa.me/${whatsappNumber}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        WhatsApp
+      </a>
+
+    </div>
+  `
+  : `
+    <p style="margin-top:20px;color:var(--muted);">
+      এই Tutor Public Contact-এর জন্য সম্মতি দেননি।
+    </p>
+  `;
+       $("modalBody").innerHTML = `
+  <h3 id="modalTitle">${escapeHTML(name)}</h3>
+
+  <div class="detail-list">
+    ${fields.filter(item => item[1] !== "").map(item =>
+      `<div><strong>${escapeHTML(item[0])}:</strong> ${escapeHTML(item[1])}</div>`
+    ).join("")}
+  </div>
+
+  ${contactActions}
+`;
 
         $("tutorModal").classList.add("show");
       }
@@ -1664,6 +1739,7 @@
         const payload = {
           tutorName: $("tutorName").value.trim(),
           mobile: $("mobile").value.trim(),
+          allowPublicContact: $("allowPublicContact").checked,
           email: $("email").value.trim(),
           profilePhoto: $("profilePhoto").value.trim(),
           division: $("division").value,
