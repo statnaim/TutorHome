@@ -535,121 +535,12 @@
       margin: 15px 0;
       font-weight: 600;
     }
-.form-message.success {
-  display: flex;
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  margin: 0;
-  background: linear-gradient(135deg, #e0f7ef, #e8f0ff, #fff2df);
-  font-weight: 500;
-  animation: successFade .4s ease;
-}
 
-.success-card {
-  width: min(520px, 100%);
-  padding: 35px 25px;
-  text-align: center;
-  background: #ffffff;
-  border-radius: 25px;
-  border: 1px solid #d9eee5;
-  box-shadow: 0 20px 60px rgba(8, 80, 65, .18);
-}
-
-.verified-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 8px 17px;
-  margin-bottom: 20px;
-  border-radius: 30px;
-  color: #087f70;
-  background: #e2f8ee;
-  border: 1px solid #a9e6cb;
-  font-weight: 700;
-}
-
-.verified-icon {
-  width: 75px;
-  height: 75px;
-  display: grid;
-  place-items: center;
-  margin: 0 auto 18px;
-  border-radius: 50%;
-  color: white;
-  background: linear-gradient(135deg, #08a878, #087f70);
-  font-size: 40px;
-  box-shadow: 0 8px 22px rgba(8, 127, 112, .25);
-}
-
-.success-card h2 {
-  color: #087f70;
-  font-size: 27px;
-  margin: 0 0 13px;
-  line-height: 1.4;
-}
-
-.success-card p {
-  color: #60716b;
-  font-size: 16px;
-  line-height: 1.8;
-  margin: 10px 0;
-}
-
-.success-contact {
-  margin: 20px 0;
-  padding: 16px;
-  border-radius: 15px;
-  background: linear-gradient(135deg, #e8f8f0, #edf4ff);
-  color: #087f70;
-  font-weight: 700;
-  font-size: 18px;
-}
-
-.success-thanks {
-  color: #d18a22 !important;
-  font-weight: 700;
-  margin-top: 18px !important;
-}
-
-.success-close {
-  margin-top: 20px;
-  padding: 12px 30px;
-  border: 0;
-  border-radius: 12px;
-  color: white;
-  background: #087f70;
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.success-close:hover {
-  background: #075e54;
-}
-
-@keyframes successFade {
-  from { opacity: 0; transform: scale(.97); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-@media (max-width: 480px) {
-  .success-card {
-    padding: 28px 18px;
-  }
-
-  .success-card h2 {
-    font-size: 23px;
-  }
-
-  .success-card p {
-    font-size: 15px;
-  }
-}
-
+    .form-message.success {
+      display: block;
+      color: #176b4e;
+      background: #e8f7ee;
+    }
 
     .form-message.error {
       display: block;
@@ -723,201 +614,6 @@
     .modal-content h3 { margin-top: 0; padding-right: 35px; }
     .detail-list { display: grid; gap: 10px; color: #52645f; }
     .detail-list strong { color: var(--ink); }
-
-/* =================================
-   MODERN TUTOR PROFILE DESIGN
-================================= */
-
-.modal-content {
-  width: min(760px, 100%);
-}
-
-.profile-download-card {
-  background: #ffffff;
-  border: 1px solid #e1eee9;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 12px 35px rgba(20, 65, 56, .09);
-  color: #18332f;
-}
-
-.profile-banner {
-  background: linear-gradient(135deg, #075e54, #087f70, #19a58d);
-  padding: 30px 25px 55px;
-  color: white;
-  position: relative;
-}
-
-.profile-banner::after {
-  content: "";
-  position: absolute;
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  background: rgba(255,255,255,.08);
-  right: -45px;
-  top: -75px;
-}
-
-.profile-header {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  position: relative;
-  z-index: 1;
-}
-
-.profile-avatar {
-  width: 90px;
-  height: 90px;
-  min-width: 90px;
-  border-radius: 22px;
-  object-fit: cover;
-  border: 4px solid rgba(255,255,255,.85);
-  background: #e5f5ef;
-}
-
-.profile-avatar-placeholder {
-  display: grid;
-  place-items: center;
-  font-size: 38px;
-  font-weight: 700;
-  color: #087f70;
-}
-
-.profile-name {
-  font-size: 27px;
-  font-weight: 700;
-  margin: 0 0 4px;
-  color: white;
-  overflow-wrap: anywhere;
-}
-
-.profile-university {
-  font-size: 15px;
-  color: #e2f5ef;
-  margin: 0;
-}
-
-.profile-label-top {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 5px 12px;
-  border-radius: 30px;
-  background: rgba(255,255,255,.17);
-  color: white;
-  font-size: 12px;
-}
-
-.profile-content {
-  padding: 25px;
-  margin-top: -27px;
-  position: relative;
-}
-
-.profile-section-title {
-  font-size: 18px;
-  font-weight: 700;
-  color: #075e54;
-  margin: 0 0 15px;
-}
-
-.profile-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.profile-item {
-  padding: 13px;
-  border: 1px solid #e5eeea;
-  border-radius: 12px;
-  background: #f8fbfa;
-  min-width: 0;
-}
-
-.profile-item.wide {
-  grid-column: 1 / -1;
-}
-
-.profile-item-label {
-  display: block;
-  color: #71817d;
-  font-size: 12px;
-  margin-bottom: 4px;
-}
-
-.profile-item-value {
-  display: block;
-  color: #18332f;
-  font-size: 15px;
-  font-weight: 600;
-  overflow-wrap: anywhere;
-  white-space: pre-wrap;
-}
-
-.profile-salary {
-  margin-top: 18px;
-  padding: 17px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, #e6f7ef, #f1fbf6);
-  border: 1px solid #ccebdd;
-  text-align: center;
-}
-
-.profile-salary-label {
-  color: #58756a;
-  font-size: 13px;
-}
-
-.profile-salary-value {
-  display: block;
-  font-size: 25px;
-  font-weight: 700;
-  color: #087f70;
-}
-
-.profile-footer {
-  padding: 14px 20px;
-  background: #f3f8f5;
-  border-top: 1px solid #e5eeea;
-  text-align: center;
-  color: #71817d;
-  font-size: 12px;
-}
-
-@media (max-width: 500px) {
-  .profile-banner {
-    padding: 24px 17px 48px;
-  }
-
-  .profile-header {
-    gap: 12px;
-  }
-
-  .profile-avatar {
-    width: 70px;
-    height: 70px;
-    min-width: 70px;
-    border-radius: 17px;
-  }
-
-  .profile-name {
-    font-size: 21px;
-  }
-
-  .profile-content {
-    padding: 17px;
-  }
-
-  .profile-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .profile-item.wide {
-    grid-column: auto;
-  }
-}
 
     .mobile-nav {
       display: none;
@@ -1002,6 +698,7 @@
   </header>
 
   <main>
+
     <!-- HERO -->
     <section class="hero" id="home">
       <div class="container hero-grid">
@@ -1377,23 +1074,26 @@
       </div>
       <div class="filter-actions" style="margin-top:20px;">
 
-  
+        <button class="btn btn-primary" type="button" id="downloadImageBtn">
+          🖼️ Download Image
+        </button>
 
-  <button class="btn btn-outline" type="button" id="downloadPdfBtn">
-    📄 Download PDF
-  </button>
+        <button class="btn btn-outline" type="button" id="downloadPdfBtn">
+          📄 Download PDF
+        </button>
 
-</div>
+      </div>
     </div>
   </div>
-  
 
   <!-- IMPORTANT: config.js must load before api.js -->
   <script src="config.js"></script>
   <script src="api.js" defer></script>
-<!-- Image and PDF Download Libraries -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <!-- Image and PDF Download Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       "use strict";
@@ -1637,266 +1337,174 @@
         }
       }
 
+      function showTutorDetails(tutor) {
+        const name = pick(tutor, ["TutorName", "tutorName", "name"]) || "নাম উল্লেখ নেই";
+        const university = pick(tutor, ["University", "university"]);
+        const department = pick(tutor, ["Department", "department"]);
+        const year = pick(tutor, ["AcademicYear", "academicYear"]);
+        const district = pick(tutor, ["District", "district"]);
+        const division = pick(tutor, ["Division", "division"]);
+        const address = pick(tutor, ["CurrentAddress", "currentAddress"]);
+        const subjects = pick(tutor, ["TeachingSubjects", "teachingSubjects", "subjects"]);
+        const locations = pick(tutor, ["TeachingLocations", "teachingLocations"]);
+        const hours = pick(tutor, ["MaximumHours", "maximumHours"]);
+        const experience = pick(tutor, ["Experience", "experience"]);
+        const salary = pick(tutor, ["ExpectedSalary", "expectedSalary", "salary"]);
+        const mobile = pick(tutor, ["Mobile", "mobile", "Phone", "phone"]);
+        const email = pick(tutor, ["Email", "email"]);
 
-function showTutorDetails(tutor) {
-
-  const name = pick(tutor, ["TutorName", "tutorName", "name"]) || "নাম উল্লেখ নেই";
-  const university = pick(tutor, ["University", "university"]);
-  const department = pick(tutor, ["Department", "department"]);
-  const year = pick(tutor, ["AcademicYear", "academicYear"]);
-  const district = pick(tutor, ["District", "district"]);
-  const division = pick(tutor, ["Division", "division"]);
-  const address = pick(tutor, ["CurrentAddress", "currentAddress"]);
-  const subjects = pick(tutor, ["TeachingSubjects", "teachingSubjects", "subjects"]);
-  const locations = pick(tutor, ["TeachingLocations", "teachingLocations"]);
-  const hours = pick(tutor, ["MaximumHours", "maximumHours"]);
-  const experience = pick(tutor, ["Experience", "experience"]);
-  const salary = pick(tutor, ["ExpectedSalary", "expectedSalary", "salary"]);
-  const mobile = pick(tutor, ["Mobile", "mobile", "Phone", "phone"]);
-  const email = pick(tutor, ["Email", "email"]);
-  const photoRaw = pick(tutor, ["ProfilePhoto", "profilePhoto", "photo"]);
-  const classLevels = pick(tutor, ["ClassLevels", "classLevels"]);
-  const website = pick(tutor, ["Website", "website"]);
-
-  function listValue(value) {
-    return Array.isArray(value) ? value.join(", ") : safeText(value);
-  }
-
-  const photo = /^https?:\/\//i.test(safeText(photoRaw).trim())
-    ? safeText(photoRaw).trim()
-    : "";
-
-  const avatar = photo
-    ? `<img class="profile-avatar" src="${escapeHTML(photo)}"
-         alt="${escapeHTML(name)}"
-         crossorigin="anonymous"
-         onerror="this.style.display='none'">`
-    : `<div class="profile-avatar profile-avatar-placeholder">
-         ${escapeHTML(name.charAt(0))}
-       </div>`;
-
-  const fields = [
-    ["বিশ্ববিদ্যালয়", university],
-    ["ডিপার্টমেন্ট", department],
-    ["অধ্যয়ন বর্ষ", year],
-    ["বিভাগ", division],
-    ["জেলা", district],
-    ["বর্তমান ঠিকানা", address],
-    ["পড়ানোর বিষয়", listValue(subjects)],
-    ["পড়ানোর এলাকা", listValue(locations)],
-    ["যেসব শ্রেণি পড়াতে পারবেন", listValue(classLevels)],
-    ["সর্বোচ্চ পড়ানোর সময়", hours ? hours + " ঘণ্টা/দিন" : ""],
-    ["অভিজ্ঞতা", experience !== "" && experience != null ? experience + " বছর" : ""],
-    ["মোবাইল নম্বর", mobile],
-    ["ইমেইল", email],
-    ["প্রোফাইল লিংক", website]
-  ];
-
-  const fieldHTML = fields
-    .filter(item => item[1] !== "" && item[1] != null)
-    .map(item => `
-      <div class="profile-item">
-        <span class="profile-item-label">
-          ${escapeHTML(item[0])}
-        </span>
-        <span class="profile-item-value">
-          ${escapeHTML(item[1])}
-        </span>
-      </div>
-    `).join("");
-
-  $("modalBody").innerHTML = `
-    <div class="profile-download-card">
-
-      <div class="profile-banner">
-        <div class="profile-header">
-          ${avatar}
-
-          <div>
-            <h2 class="profile-name" id="modalTitle">
-              ${escapeHTML(name)}
-            </h2>
-
-            <p class="profile-university">
-              ${escapeHTML(university || "বিশ্ববিদ্যালয় উল্লেখ নেই")}
-            </p>
-
-            <span class="profile-label-top">
-              ShikkhaSetu Tutor Profile
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <div class="profile-content">
-
-        <h3 class="profile-section-title">
-          টিউটরের বিস্তারিত তথ্য
-        </h3>
-
-        <div class="profile-grid">
-          ${fieldHTML}
-        </div>
-
-        ${
-          salary !== "" && salary != null
-            ? `
-              <div class="profile-salary">
-                <span class="profile-salary-label">
-                  প্রত্যাশিত মাসিক বেতন
-                </span>
-
-                <span class="profile-salary-value">
-                  ৳${money(salary)} / মাস
-                </span>
-              </div>
-            `
-            : ""
+        function listValue(value) {
+          return Array.isArray(value) ? value.join(", ") : safeText(value);
         }
 
-      </div>
+        const fields = [
+          ["বিশ্ববিদ্যালয়", university],
+          ["ডিপার্টমেন্ট", department],
+          ["অধ্যয়ন বর্ষ", year],
+          ["বিভাগ", division],
+          ["জেলা", district],
+          ["বর্তমান ঠিকানা", address],
+          ["পড়ানোর বিষয়", listValue(subjects)],
+          ["পড়ানোর এলাকা", listValue(locations)],
+          ["সর্বোচ্চ সময়", hours ? hours + " ঘণ্টা/দিন" : ""],
+          ["অভিজ্ঞতা", experience !== "" ? experience + " বছর" : ""],
+          ["প্রত্যাশিত বেতন", salary !== "" ? "৳" + money(salary) + " / মাস" : ""],
+          ["মোবাইল", mobile],
+          ["ইমেইল", email]
+        ];
 
-      <div class="profile-footer">
-        ShikkhaSetu | শিক্ষার নতুন সংযোগ
-      </div>
+        $("modalBody").innerHTML = `
+          <h3 id="modalTitle">${escapeHTML(name)}</h3>
+          <div class="detail-list">
+            ${fields.filter(item => item[1] !== "").map(item =>
+              `<div><strong>${escapeHTML(item[0])}:</strong> ${escapeHTML(item[1])}</div>`
+            ).join("")}
+          </div>
+        `;
 
-    </div>
-  `;
+        $("tutorModal").classList.add("show");
+      }
 
-  $("tutorModal").classList.add("show");
-}
+      // =================================
+      // DOWNLOAD TUTOR PROFILE
+      // =================================
+
+      async function captureTutorProfile() {
+
+        const profile = $("modalBody");
+
+        if (!profile || !profile.innerText.trim()) {
+          throw new Error("Tutor Profile পাওয়া যায়নি।");
+        }
+
+        if (typeof html2canvas === "undefined") {
+          throw new Error("Image Download Library লোড হয়নি।");
+        }
+
+        const canvas = await html2canvas(profile, {
+          scale: 2,
+          backgroundColor: "#ffffff",
+          useCORS: true,
+          logging: false
+        });
+
+        return canvas;
+      }
 
 
-// =================================
-// DOWNLOAD TUTOR PROFILE
-// =================================
+      // Download as PNG Image
+      $("downloadImageBtn").addEventListener("click", async function () {
 
-async function captureTutorProfile() {
+        const button = this;
 
-  const profile = $("modalBody");
+        try {
 
-  if (!profile || !profile.innerText.trim()) {
-    throw new Error("Tutor Profile পাওয়া যায়নি।");
-  }
+          button.disabled = true;
+          button.textContent = "ছবি তৈরি হচ্ছে...";
 
-  if (typeof html2canvas === "undefined") {
-    throw new Error("Image Download Library লোড হয়নি।");
-  }
+          const canvas = await captureTutorProfile();
 
-  if (document.fonts && document.fonts.ready) {
-    await document.fonts.ready;
-  }
+          const link = document.createElement("a");
 
-  const canvas = await html2canvas(profile, {
-    scale: 2,
-    backgroundColor: "#ffffff",
-    useCORS: true,
-    logging: false
-  });
+          const name = $("modalTitle").textContent
+            .trim()
+            .replace(/[^a-zA-Z0-9\u0980-\u09FF_-]/g, "_");
 
-  return canvas;
-}
+          link.download = "ShikkhaSetu_" + name + ".png";
+          link.href = canvas.toDataURL("image/png");
+
+          link.click();
+
+        } catch (error) {
+
+          alert(error.message || "Image Download করা যায়নি।");
+
+        } finally {
+
+          button.disabled = false;
+          button.textContent = "🖼️ Download Image";
+
+        }
+
+      });
+
+
+      // Download as PDF
       $("downloadPdfBtn").addEventListener("click", async function () {
-  const button = this;
 
-  try {
-    button.disabled = true;
-    button.textContent = "PDF তৈরি হচ্ছে...";
+        const button = this;
 
-    const canvas = await captureTutorProfile();
+        try {
 
-    if (!window.jspdf || !window.jspdf.jsPDF) {
-      throw new Error("PDF Library লোড হয়নি।");
-    }
+          button.disabled = true;
+          button.textContent = "PDF তৈরি হচ্ছে...";
 
-    const { jsPDF } = window.jspdf;
-    const imageData = canvas.toDataURL("image/png");
+          const canvas = await captureTutorProfile();
 
-    const pdfWidth = 190;
-    const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+          if (!window.jspdf || !window.jspdf.jsPDF) {
+            throw new Error("PDF Library লোড হয়নি।");
+          }
 
-    const pdf = new jsPDF({
-      orientation: "portrait",
-      unit: "mm",
-      format: [210, Math.max(297, pdfHeight + 20)]
-    });
+          const { jsPDF } = window.jspdf;
 
-    pdf.addImage(imageData, "PNG", 10, 10, pdfWidth, pdfHeight);
+          const imageData = canvas.toDataURL("image/png");
 
-    const name = ($("modalTitle")?.textContent || "Tutor")
-      .trim()
-      .replace(/[^a-zA-Z0-9\u0980-\u09FF_-]/g, "_");
+          const pdfWidth = 190;
+          const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
 
-    pdf.save("ShikkhaSetu_" + name + ".pdf");
+          const pdf = new jsPDF({
+            orientation: "portrait",
+            unit: "mm",
+            format: [210, Math.max(297, pdfHeight + 20)]
+          });
 
-  } catch (error) {
-    alert(error.message || "PDF Download করা যায়নি।");
-  } finally {
-    button.disabled = false;
-    button.textContent = "📄 Download PDF";
-  }
-});
+          pdf.addImage(
+            imageData,
+            "PNG",
+            10,
+            10,
+            pdfWidth,
+            pdfHeight
+          );
 
+          const name = $("modalTitle").textContent
+            .trim()
+            .replace(/[^a-zA-Z0-9\u0980-\u09FF_-]/g, "_");
 
-// =================================
-// DOWNLOAD AS PDF
-// =================================
+          pdf.save("ShikkhaSetu_" + name + ".pdf");
 
-$("downloadPdfBtn").addEventListener("click", async function () {
+        } catch (error) {
 
-  const button = this;
+          alert(error.message || "PDF Download করা যায়নি।");
 
-  try {
+        } finally {
 
-    button.disabled = true;
-    button.textContent = "PDF তৈরি হচ্ছে...";
+          button.disabled = false;
+          button.textContent = "📄 Download PDF";
 
-    const canvas = await captureTutorProfile();
+        }
 
-    if (!window.jspdf || !window.jspdf.jsPDF) {
-      throw new Error("PDF Library লোড হয়নি।");
-    }
-
-    const { jsPDF } = window.jspdf;
-
-    const imageData = canvas.toDataURL("image/png");
-
-    const pdfWidth = 190;
-    const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-
-    const pdf = new jsPDF({
-      orientation: "portrait",
-      unit: "mm",
-      format: [210, Math.max(297, pdfHeight + 20)]
-    });
-
-    pdf.addImage(
-      imageData,
-      "PNG",
-      10,
-      10,
-      pdfWidth,
-      pdfHeight
-    );
-
-    const name = ($("modalTitle")?.textContent || "Tutor")
-      .trim()
-      .replace(/[^a-zA-Z0-9\u0980-\u09FF_-]/g, "_");
-
-    pdf.save("ShikkhaSetu_" + name + ".pdf");
-
-  } catch (error) {
-
-    alert(error.message || "PDF Download করা যায়নি।");
-
-  } finally {
-
-    button.disabled = false;
-    button.textContent = "📄 Download PDF";
-
-  }
-
-});
+      });
 
 
       $("modalClose").addEventListener("click", function () {
@@ -1909,65 +1517,82 @@ $("downloadPdfBtn").addEventListener("click", async function () {
         }
       });
 
-      // Search filters
-$("searchForm").addEventListener("submit", function (event) {
-  event.preventDefault();
 
-  currentPage = 1;
-  currentFilters = {
-    name: $("filterName").value.trim(),
-    university: $("filterUniversity").value.trim(),
-    division: $("filterDivision").value,
-    district: $("filterDistrict").value.trim(),
-    subject: $("filterSubject").value.trim(),
-    department: $("filterDepartment").value.trim(),
-    academicYear: $("filterAcademicYear").value,
-    location: $("filterLocation").value.trim(),
-    minSalary: $("filterMinSalary").value,
-    maxSalary: $("filterMaxSalary").value,
-    experience: $("filterExperience").value,
-    sort: $("filterSort").value
-  };
+      // =================================
+      // SEARCH FILTERS
+      // =================================
 
-  const hasSearch =
-    currentFilters.name ||
-    currentFilters.university ||
-    currentFilters.division ||
-    currentFilters.district ||
-    currentFilters.subject ||
-    currentFilters.department ||
-    currentFilters.academicYear ||
-    currentFilters.location ||
-    currentFilters.minSalary ||
-    currentFilters.maxSalary ||
-    currentFilters.experience;
+      $("searchForm").addEventListener("submit", function (event) {
+        event.preventDefault();
 
-  if (!hasSearch) {
-    $("tutorResults").innerHTML =
-      `<div class="empty-state">অন্তত একটি তথ্য দিয়ে Search করুন।</div>`;
+        currentPage = 1;
 
-    $("resultCount").textContent = "Search প্রয়োজন";
-    $("pagination").innerHTML = "";
-    return;
-  }
+        currentFilters = {
+          name: $("filterName").value.trim(),
+          university: $("filterUniversity").value.trim(),
+          division: $("filterDivision").value,
+          district: $("filterDistrict").value.trim(),
+          subject: $("filterSubject").value.trim(),
+          department: $("filterDepartment").value.trim(),
+          academicYear: $("filterAcademicYear").value,
+          location: $("filterLocation").value.trim(),
+          minSalary: $("filterMinSalary").value,
+          maxSalary: $("filterMaxSalary").value,
+          experience: $("filterExperience").value,
+          sort: $("filterSort").value
+        };
 
-  loadTutors();
-});
+        // Check whether at least one actual search filter is selected
+        const hasSearch =
+          currentFilters.name ||
+          currentFilters.university ||
+          currentFilters.division ||
+          currentFilters.district ||
+          currentFilters.subject ||
+          currentFilters.department ||
+          currentFilters.academicYear ||
+          currentFilters.location ||
+          currentFilters.minSalary ||
+          currentFilters.maxSalary ||
+          currentFilters.experience;
 
+        // Do not show all tutors if the user searches without any filter
+        if (!hasSearch) {
+          $("tutorResults").innerHTML =
+            `<div class="empty-state">অন্তত একটি তথ্য দিয়ে Search করুন।</div>`;
+
+          $("resultCount").textContent = "Search প্রয়োজন";
+          $("pagination").innerHTML = "";
+
+          return;
+        }
+
+        // Search only when at least one filter is provided
+        loadTutors();
+      });
+
+
+      // Reset search filters and hide tutor list again
       $("searchForm").addEventListener("reset", function () {
-  setTimeout(function () {
-    currentPage = 1;
-    currentFilters = {};
+        setTimeout(function () {
 
-    $("tutorResults").innerHTML =
-      `<div class="empty-state">টিউটর খুঁজতে Search অপশন ব্যবহার করুন।</div>`;
+          currentPage = 1;
+          currentFilters = {};
 
-    $("resultCount").textContent = "Search করে টিউটর খুঁজুন";
-    $("pagination").innerHTML = "";
-  }, 0);
-});
+          $("tutorResults").innerHTML =
+            `<div class="empty-state">টিউটর খুঁজতে Search অপশন ব্যবহার করুন।</div>`;
 
-      // Registration form
+          $("resultCount").textContent = "Search করে টিউটর খুঁজুন";
+          $("pagination").innerHTML = "";
+
+        }, 0);
+      });
+
+
+      // =================================
+      // REGISTRATION FORM
+      // =================================
+
       $("tutorForm").addEventListener("submit", async function (event) {
         event.preventDefault();
 
@@ -2026,60 +1651,21 @@ $("searchForm").addEventListener("submit", function (event) {
             throw new Error(data.message || "রেজিস্ট্রেশন সম্পন্ন হয়নি।");
           }
 
-          
-const successBox = $("formMessage");
-
-successBox.className = "form-message success";
-
-successBox.innerHTML = `
-  <div class="success-card">
-
-    <div class="verified-badge">
-      <span>✔</span> Registration Submitted
-      <span>✓</span>
-    </div>
-
-    <div class="verified-icon">✓</div>
-
-    <h2>অভিনন্দন! আপনার রেজিস্ট্রেশন সফল হয়েছে।</h2>
-
-    <p>
-      ShikkhaSetu-তে আপনার সঙ্গে যুক্ত হতে পেরে
-      আমরা আনন্দিত।
-    </p>
-
-    <div class="success-contact">
-      🤝 আপনার সঙ্গে যোগাযোগ করা হবে!
-    </div>
-
-    <p>
-      আগ্রহী অভিভাবক আপনার প্রোফাইল দেখে
-      আপনার সঙ্গে যোগাযোগ করতে পারবেন।
-    </p>
-
-    <p>
-      অনুগ্রহ করে আপনার মোবাইল ফোনটি সচল রাখুন।
-    </p>
-
-    <p class="success-thanks">
-      ধন্যবাদ, ShikkhaSetu-এর সঙ্গে থাকার জন্য। ❤️
-    </p>
-
-    <button type="button" class="success-close"
-      onclick="document.getElementById('formMessage').className='form-message'; document.getElementById('formMessage').innerHTML='';">
-      ধন্যবাদ ❤️
-    </button>
-
-  </div>
-`;
-
+          showMessage(
+            (data && data.message) ||
+            (response && response.message) ||
+            "আপনার রেজিস্ট্রেশন অনুরোধ জমা হয়েছে।",
+            "success"
+          );
 
           $("tutorForm").reset();
 
-         // Refresh statistics only after successful submission
-setTimeout(function () {
-  loadStatistics();
-}, 1500);
+          // Refresh statistics only after successful submission
+          // Do not load all tutor profiles automatically
+          setTimeout(function () {
+            loadStatistics();
+          }, 1500);
+
         } catch (error) {
           showMessage(
             error.message || "দুঃখিত, রেজিস্ট্রেশন করা যায়নি। আবার চেষ্টা করুন।",
@@ -2091,7 +1677,11 @@ setTimeout(function () {
         }
       });
 
-      // Dashboard statistics
+
+      // =================================
+      // DASHBOARD STATISTICS
+      // =================================
+
       async function loadStatistics() {
         try {
           const api = await waitForAPI();
@@ -2114,18 +1704,22 @@ setTimeout(function () {
         }
       }
 
-     // Initial load
-$("tutorResults").innerHTML =
-  `<div class="empty-state">টিউটর খুঁজতে Search অপশন ব্যবহার করুন।</div>`;
 
-$("resultCount").textContent = "Search করে টিউটর খুঁজুন";
-$("pagination").innerHTML = "";
+      // =================================
+      // INITIAL LOAD
+      // =================================
 
-loadStatistics();
+      // Show an instruction instead of loading all tutor profiles
+      $("tutorResults").innerHTML =
+        `<div class="empty-state">টিউটর খুঁজতে Search অপশন ব্যবহার করুন।</div>`;
+
+      $("resultCount").textContent = "Search করে টিউটর খুঁজুন";
+      $("pagination").innerHTML = "";
+
+      // Statistics will still load normally
+      loadStatistics();
+
     });
   </script>
 </body>
 </html>
-
-
-
